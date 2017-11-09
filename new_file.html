@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作用域</title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+		<script type="text/javascript">
+			let {a,b,c} = {a:'pl',c:10,b:'vah'}
+			
+			console.log(a,b,c)
+			
+			//模板渲染引擎
+			//(``)括号里的为超级字符串
+			//(...)括号里的为扩展符
+			var str = 'riiiiiichu'
+			//let a = "漂亮"//a变量
+			let st = '<div></div>'
+			var tr = `
+				<div>${a}</div>
+			`;
+			
+			var box = new Set([...str]);
+			console.log(box,tr);
+			var arr = [1,2,3,444,666,44]
+//				arr.forEach(function(item,value){
+//					console.log(value,item)
+//				})
+				arr.forEach((item,value)=>{
+					console.log(item*value)
+				})
+				for(var i=0;i<5;i++){
+					var art = 2;
+					console.log(i);
+				}
+				
+			var fn = (a,b)=>{
+				var r =7;
+				var c = a*b*r;
+				return c;
+			}
+					
+			console.log(fn(1,8))
+						
+			function foo() {
+				  setTimeout(() => {
+				    console.log('id:', this.id);
+				  }, 100);
+				}
+				
+				var id = 21;
+				
+				foo.call({ id: 42 });
+				// id: 42
+				
+				
+				
+				class Fnyu{
+					constructor(name,age){
+						this.name = name;
+						this.age = age
+					}
+					
+					say(){
+						console.log(this.name,this.age)
+					}
+					
+					speak(){
+						var t = 20;
+						var h = 23;
+						return h*t
+					}
+				}
+				var fuyu= new Fnyu('你好',19);
+				fuyu.say();
+				fuyu.speak();
+		</script>
+	</body>
+</html>
