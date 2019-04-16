@@ -31,6 +31,40 @@
     var message = "Hello World";
     console.log(message);
 }
+{
+    var message = "Hello World";
+    console.log(message);
+}
+{
+    var message = "Hello World";
+    console.log(message);
+}
+{
+    var message = "Hello World";
+    console.log(message);
+}
+{
+    var message = "Hello World";
+    console.log(message);
+}
+{
+    var message = "Hello World";
+    console.log(message);
+}
+{
+    var message = "Hello World";
+    console.log(message);
+}
+;
+{
+    var message = "Hello World";
+    console.log(message);
+}
+;
+{
+    var message = "Hello World";
+    console.log(message);
+}
 ;
 // 函数定义
 function greet() {
@@ -69,8 +103,3 @@ var employee = {
 console.log("Employee  对象 ");
 console.log(employee.firstName);
 console.log(employee.lastName);
-var Person = /** @class */ (function () {
-    function Person() {
-    }
-    return Person;
-}());
