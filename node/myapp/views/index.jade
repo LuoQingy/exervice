@@ -1,0 +1,18 @@
+extends layout
+head
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css')
+block content
+  h1= title
+  p Welcome to #{title}
+  h3【nodejs爬虫】 获取拉勾网招聘岗位--前端开发
+  p 初始化完成 ...
+  p <button class="btn" id="btn0" onclick="cheerFetch(1)">点击开始抓取第一页</button>
+  div.container
+  div.footer <p class="fetching">数据抓取中 ... 请稍后</p>
+      <button class="btn" id="btn1" onclick="cheerFetch(--currentPage)">抓取上一页</button>
+      <button class="btn" id="btn2" onclick="cheerFetch(++currentPage)">抓取下一页</button>
+      
+  script(src='http://code.jquery.com/jquery-2.1.3.js')
+  script(src="/javascripts/index.js")
+ 
