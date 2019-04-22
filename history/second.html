@@ -1,91 +1,67 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>作用域</title>
-	</head>
-	<body>
-		<ul>
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
-			<li>6</li>
-		</ul>
-		<div>
-			<a href="third.html">third</a>
-		</div>
-		<script src="http://tu.baixing.com/widget/script/zl-xxlst26.js?autosize=1"></script>
-		<script type="text/javascript">
-			let {a,b,c} = {a:'pl',c:10,b:'vah'}
-			
-			console.log(a,b,c)
-			
-			//模板渲染引擎
-			//(``)括号里的为超级字符串
-			//(...)括号里的为扩展符
-			var str = 'riiiiiichu'
-			//let a = "漂亮"//a变量
-			let st = '<div></div>'
-			var tr = `
-				<div>${a}</div>
-			`;
-			console.log(document.referrer)
-			var box = new Set([...str]);
-			console.log(box,tr);
-			var arr = [1,2,3,444,666,44]
-//				arr.forEach(function(item,value){
-//					console.log(value,item)
-//				})
-				arr.forEach((item,value)=>{
-					console.log(item*value)
-				})
-				for(var i=0;i<5;i++){
-					var art = 2;
-					console.log(i);
-				}
-				
-			var fn = (a,b)=>{
-				var r =8;
-				var c = a*b*r;
-				return c;
-			}
-					
-			console.log(fn(2,8))
-						
-			function foo() {
-				  setTimeout(() => {
-				    console.log('id:', this.id);
-				  }, 100);
-				}
-				
-				var id = 21;
-				
-				foo.call({ id: 42 });
-				// id: 42
-				
-				
-				
-				class Fnyu{
-					constructor(name,age){
-						this.name = name;
-						this.age = age
-					}
-					
-					say(){
-						console.log(this.name,this.age)
-					}
-					
-					speak(){
-						var t = 20;
-						var h = 23;
-						return h*t
-					}
-				}
-				var fuyu= new Fnyu('你好',19);
-				fuyu.say();
-				fuyu.speak();
-		</script>
-	</body>
-</html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<meta name="keywords" content="html5、css3、jquery">
+<meta name="description" content="一个前端工作者的学习笔记">
+<title>Html5 Canvas 实现图片合成 |</title>
+
+
+<style>
+img{ border:solid 1px #ddd;}
+</style></head>
+
+
+<body>
+<div align="center">
+<img src="./b3efeb7e1.webp" width="300">
+<img src="./b3efeb7e1.webp" width="300">
+</div>
+<div id="imgBox" align="center">
+    <input type="button" value="一键合成" onclick="hecheng()">
+</div>
+<script>
+function hecheng(){
+draw(function(){
+document.getElementById('imgBox').innerHTML='<p style="padding:10px 0">合成图片成功！可以鼠标另存图片查看我是否是一张图片~~！</p><img src="'+base64[0]+'">';
+}) 
+}
+
+
+var data=['./b3efeb7e1.webp','./b3efeb7e1.webp'],base64=[];
+function draw(fn){
+var c=document.createElement('canvas'),
+ctx=c.getContext('2d'),
+len=data.length;
+c.width=400;
+c.height=700;
+ctx.rect(0,0,c.width,c.height);
+ctx.fillStyle='#fff';
+ctx.fill();
+function drawing(n){
+if(n<len){
+var img=new Image;
+//img.crossOrigin = 'Anonymous'; //解决跨域
+
+img.src=data[n];
+img.onload=function(){
+if(n==1){
+ctx.drawImage(img,100,490,180,160);
+}
+else{
+ctx.drawImage(img,0,0,c.width,c.height);
+}
+
+drawing(n+1);//递归
+}
+}else{
+//保存生成作品图片
+base64.push(c.toDataURL("image/webp",0.8));
+//alert(JSON.stringify(base64));
+fn();
+}
+}
+drawing(0);
+}
+</script>
+</body></html>

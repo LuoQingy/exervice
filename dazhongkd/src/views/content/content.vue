@@ -1,12 +1,14 @@
 <template>
     <div>
         <div ref="mescroll" class="mescroll" id="mescroll">
+            
             <div v-if="componentshow" style="padding:0 0px;">
                 <div class="news-list-wrap" v-for="(item,index) in dataList" :key='index'>   
                     <modular-second v-if="item.images.length>=3" :itemContent='item'></modular-second>
                     <modular-first v-else :itemContent='item'></modular-first>
                 </div>
-            </div>    
+            </div>  
+            
         </div>
     </div>
 </template>

@@ -9,7 +9,7 @@ function getData(str){   //获取到的数据有杂乱..需要把前面部分去
     var currentPage = 0;  //page初始0
     // setInterval(()=>{
     //     cheerFetch(1,"http://wap1.prculture.cn/#/home/artical/aae81d48e9a5300198ec654147bfda21/%E6%97%B6%E5%B0%9A")
-    //     cheerFetch(1,"http://wap1.prculture.cn")
+    //     cheerFetch(1,"http://wap1.prculture.cn/#/home/index/%E5%81%A5%E5%BA%B7")
     // },1000)
    function cheerFetch(_page,_shezhi){  //抓取数据处理函数
        if(_page == 1){ 
@@ -22,10 +22,12 @@ function getData(str){   //获取到的数据有杂乱..需要把前面部分去
          $(".fetching").css("display","none");
          });
         $.ajax({   //开始发送ajax请求至路径 /getJobs  进而作页面抓取处理
-            data:{},  //参数 page = _page
+            data:{
+              page:'http://hao1.91nzh.com/q/32/'
+            },  //参数 page = _page
             dataType: "json",
              type: "get",
-            url: _shezhi||'http://wap1.prculture.cn',
+            url: "/getJobs",
             success: function(data){   //收到返回的json数据
                 console.log(data);
                  var html = "";

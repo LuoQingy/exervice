@@ -40,7 +40,14 @@ export default new Router({
         name: 'Home',
         component: resolve => require(['./views/content/content.vue'], resolve),
         meta:{keepAlive:true}
-      }]
+      },
+      {
+        path: '/home/third',
+        name: 'third',
+        component: resolve => require(['./views/modular/modularThird.vue'], resolve),
+        meta:{keepAlive:true}
+      }
+    ]
     },
     // {
     //   path: "/about",
