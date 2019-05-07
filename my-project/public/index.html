@@ -7,6 +7,18 @@
         <title>
             <%= htmlWebpackPlugin.options.title %>
         </title>
+        <style media="screen" style=''>
+            @media only screen and (min-width: 750px) {
+                body {
+                width: 750px;
+                }
+            }
+            @media screen and (min-width:750px) {
+                html {
+                    font-size:75px !important
+                }
+            }
+        </style>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px'
