@@ -23,7 +23,7 @@
 				<text>\n横向滚动</text>
 			</view>
 			<view>
-				<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="120">
+				<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-with-animation='true' scroll-left="120">
 					<view id="demo1" class="scroll-view-item_H uni-bg-red">A</view>
 					<view id="demo2" class="scroll-view-item_H uni-bg-green">B</view>
 					<view id="demo3" class="scroll-view-item_H uni-bg-blue">C</view>
@@ -45,9 +45,11 @@
 		methods: {
 			upper: function(e) {
 				console.log(e)
+				console.log('upper')
 			},
 			lower: function(e) {
 				console.log(e)
+				console.log('lower')
 			},
 			scroll: function(e) {
 				console.log(e)
@@ -57,8 +59,10 @@
 				// 解决view层不同步的问题
 				this.scrollTop = this.old.scrollTop
 				this.$nextTick(function() {
-					this.scrollTop = 0
+					//this.scrollTop = 0
+
 				});
+				console.log(this.scrollTop)
 				uni.showToast({
 					icon:"none",
 					title:"纵向滚动 scrollTop 值已被修改为 0"

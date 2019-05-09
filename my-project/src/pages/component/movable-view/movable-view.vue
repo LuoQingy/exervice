@@ -7,7 +7,7 @@
 				<text>\nmovable-view 区域小于 movable-area</text>
 			</view>
 			<movable-area>
-				<movable-view :x="x" :y="y" direction="all" @change="onChange">text</movable-view>
+				<movable-view  :x="x" :y="y" direction="all"   @change="onChange">text</movable-view>
 			</movable-area>
 			<view @tap="tap" class="uni-link uni-center uni-common-mt">
 				点击这里移动至 (30px, 30px)
@@ -90,8 +90,9 @@
 				this.scale = this.old.scale
 				this.scale = this.old.scale
 				this.$nextTick(function() {
-					this.scale = 3
+					this.scale = 1
 				})
+				this.scale = 0.2
 			},
 			onChange: function(e) {
 				this.old.x = e.detail.x

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>习题1</title>
+    </head>
+    <style>
+        body,div,img{
+            padding:0;
+            margin:0;
+        }
+        body{
+            /* position: relative; */
+            width: 100%;
+            height: 100%;
+        }
+        #box {
+            position:absolute;
+            top:0;
+            left: 0px;
+            right: 100px;
+            bottom: 0px;
+        }
+        #boxTwo{
+            width: 100px;
+            position: fixed;;
+            top:0;
+            right: 0px;
+            bottom: 0px;
+        }
+        #box img,#boxTwo img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+	<body>
+		<div id="box">
+            <img src="./03ba9b79a273425d924e384dd011a876.jpg" alt="">
+        </div>
+        <div id="boxTwo">
+                <img src="./03ba9b79a273425d924e384dd011a876.jpg" alt="">
+        </div>
+	</body>
+</html>
