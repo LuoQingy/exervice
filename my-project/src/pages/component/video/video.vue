@@ -26,6 +26,7 @@
 	</view>
 </template>
 <script>
+import { setInterval } from 'timers';
 	export default {
 		data() {
 			return {
@@ -42,7 +43,8 @@
 						time: 3
 					}
 				],
-				danmuValue: ''
+				danmuValue: '',
+				timer:null,
 			}
 		},
 		onReady: function(res) {
@@ -50,8 +52,19 @@
 			this.videoContext = uni.createVideoContext('myVideo')
 			// #endif
 		},
+		destroyed(){
+			clearInterval(this.timer)
+		},
 		methods: {
 			sendDanmu: function() {
+				var num = 0;
+				this.timer = setInterval(()=>{
+					this.videoContext.sendDanmu({
+						text: this.getRandomColor(),
+						color: this.getRandomColor()
+					});
+					console.log(num++)
+				},300)
 				this.videoContext.sendDanmu({
 					text: this.danmuValue,
 					color: this.getRandomColor()

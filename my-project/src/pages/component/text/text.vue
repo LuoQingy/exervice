@@ -3,7 +3,7 @@
 		<page-head :title="title"></page-head>
 		<view class="uni-padding-wrap uni-common-mt">
 			<view class="text-box" scroll-y="true">
-				<text>{{text}}</text>
+				<text >{{text}}</text>
 			</view>
 			<view class="uni-btn-v">
 				<button type="primary" :disabled="!canAdd" @click="add">add line</button>
@@ -42,6 +42,7 @@
 			add: function(e) {
 				this.extraLine.push(this.texts[this.extraLine.length % 12]);
 				this.text = this.extraLine.join('\n');
+				//console.log(this.text)
 				this.canAdd = this.extraLine.length < 12;
 				this.canRemove = this.extraLine.length > 0;
 			},
@@ -70,5 +71,11 @@
 		font-size: 30upx;
 		color: #353535;
 		line-height: 1.8;
+
+	}
+	.text-box text{
+		text-decoration: underline;
+		color: #999;
+		text-underline-position:auto;
 	}
 </style>
