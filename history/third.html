@@ -3,9 +3,145 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>作用域</title>
+		<script src="https://cdn.staticfile.org/vue/2.6.6/vue.min.js"></script>
+		<!-- Adds google cdn reference -->
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Cdn fail refers to local library -->
+		<script type="text/javascript">
+		    if (typeof jQuery == 'undefined') {
+		        document.write(unescape("%3Cscript src='{%$rootpath%}js/jquery-3.2.1.min.js' type='text/javascript'%3E%3C/script%3E"));
+		    }
+			if (typeof Vue == 'undefined') {
+				document.write(unescape("%3Cscript src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js' type='text/javascript'%3E%3C/script%3E"));
+				if (typeof Vue == 'undefined') { 
+				console.log('klkkk')
+				// if (typeof Vue == 'undefined') {     
+				//   console.log('klkkk')
+				//   document.write(unescape("%3Cscript src='./static/vue.min.js' type='text/javascript'%3E%3C/script%3E"));
+				// }
+				}
+			
+			}
+			// document.write(unescape("%3Cscript src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js' type='text/javascript'%3E%3C/script%3E"));
+			// document.write(unescape("%3Cscript src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.js' type='text/javascript'%3E%3C/script%3E"));
+			// document.write(unescape("%3Cscript src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.runtime.min.js' type='text/javascript'%3E%3C/script%3E"));
+			// document.write(unescape("%3Cscript src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.runtime.esm.js' type='text/javascript'%3E%3C/script%3E"));
+			// document.write(unescape("%3Cscript src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.min.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script>
+				if (typeof Vue == 'undefined') {
+				  document.write(unescape("%3Cscript src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js' type='text/javascript'%3E%3C/script%3E"));
+				  if (typeof Vue == 'undefined') { 
+					console.log('klkkk')
+					// if (typeof Vue == 'undefined') {     
+					//   console.log('klkkk')
+					//   document.write(unescape("%3Cscript src='./static/vue.min.js' type='text/javascript'%3E%3C/script%3E"));
+					// }
+				  }
+				 
+				}
+				// if (typeof Vue == 'undefined') {
+				//   document.write(unescape("%3Cscript src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js' type='text/javascript'%3E%3C/script%3E"));
+				//   if (typeof Vue == 'undefined') {
+				//     document.write(unescape("%3Cscript src='./static/vue.min.js' type='text/javascript'%3E%3C/script%3E"));
+				//   }
+		  
+				  // try {
+				  //   console.log(new Vue)
+				  //   console.log('你好')
+				  // } catch (error) {
+				  //   console.log(error)
+				  //   // document.write(unescape("%3Cscript src='./static/vue.min.js' type='text/javascript'%3E%3C/script%3E"));
+				  // }
+				//}
+					  // try {
+					  // 	console.log('你好');
+					  // 	console.log(new Vue)
+					  // } catch (error) {
+					  // 	console.log('catch');
+					  // 	(function() {
+					  // 		var hm = document.createElement("script");
+					  // 		hm.src = "./static/vue.min.js";
+					  // 		var s = document.getElementsByTagName("script")[0]; 
+					  // 		s.parentNode.insertBefore(hm, s);
+					  // 	})();
+					  // 	console.log(error)
+					  // 	//console.log(vue)
+				// }
+				
+					  // try {
+					  // 	console.log('你好');
+					  // 	console.log($)
+					  // } catch (error) {
+					  // 	console.log('catch');
+					  // 	(function() {
+					  // 		var hm = document.createElement("script");
+					  // 		hm.src = "https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js";
+					  // 		var s = document.getElementsByTagName("script")[0]; 
+					  // 		s.parentNode.insertBefore(hm, s);
+					  // 	})();
+					  // 	console.log(error)
+					  // 	//console.log(vue)
+					  // }
+		</script>
+		<!-- <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script> -->
+		<script>
+			try {
+				console.log('你好');
+				console.log(new Vue)
+			} catch (error) {
+				console.log('catch');
+				(function() {
+					var hm = document.createElement("script");
+					hm.src = "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js";
+					var s = document.getElementsByTagName("script")[0]; 
+					s.parentNode.insertBefore(hm, s);
+				})();
+				console.log(error)
+				//console.log(vue)
+			}
+			try {
+				console.log('你好');
+				console.log($)
+			} catch (error) {
+				console.log('catch');
+				(function() {
+					var hm = document.createElement("script");
+					hm.src = "https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js";
+					var s = document.getElementsByTagName("script")[0]; 
+					s.parentNode.insertBefore(hm, s);
+				})();
+				console.log(error)
+				//console.log(vue)
+			}
+		</script>
 	</head>
 	<body>
 		<ul>
+			可以看出第三种方式：document.wirite("scr"+"ipt src='https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js'></scr"+"ipt">引入js的代码，执行会迟与直接写入的js文本。
+			<br>
+
+			同时，第四种方式引入js的执行和直接写入的文本是按顺序执行。
+			<br>
+
+			总结下，常用的一下几种方式引入js代码：
+			<br>
+
+			在页面中直接写入<script type="text/javascript">js代码</script>。
+			<br>
+
+			在页面中引入外部文件<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>。
+			<br>
+
+			在js中引入外部js，通过document.wirite("scr"+"ipt src='https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js'></scr"+"ipt">。
+			<br>
+
+			在js中引用其他js片段，document.write("<scr"+"ipt>alert('https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js')</scr"+"ipt>")。
+			<br>
+
+			通过DOM添加：var scr=document.createElement("script"); scr.src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js";
+			<br>
+
 			<li>1</li>
 			<li>2</li>
 			<li>3</li>
@@ -14,9 +150,9 @@
 			<li>6</li>
 		</ul>
 		<div>
-			<a href="third.html">index</a>
+			<a href="index.html">index</a>
 		</div>
-		<script src="http://tu.baixing.com/widget/script/zl-xxlst26.js?autosize=1"></script>
+		<!-- <script src="http://tu.baixing.com/widget/script/zl-xxlst26.js?autosize=1"></script> -->
 		<script type="text/javascript">
 			let {a,b,c} = {a:'pl',c:10,b:'vah'}
 			
@@ -31,6 +167,7 @@
 			var tr = `
 				<div>${a}</div>
 			`;
+			
 			
 			var box = new Set([...str]);
 			console.log(box,tr);
@@ -83,6 +220,7 @@
 						return h*t
 					}
 				}
+			
 				var fuyu= new Fnyu('你好',19);
 				fuyu.say();
 				fuyu.speak();
