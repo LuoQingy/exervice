@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>习题2</title>
+    </head>
+    <style>
+        body,div,img{
+            padding:0;
+            margin:0;
+        }
+        body{
+            /* position: relative; */
+            width: 100%;
+            height: 100%;
+        }
+        #box {
+            position:absolute;
+            top:0;
+            left: 0px;
+            right: 0px;
+            /* bottom: 0px; */
+        }
+        /* #boxTwo{
+            width: 100px;
+            position: fixed;;
+            top:0;
+            right: 0px;
+            bottom: 0px;
+        } */
+        #box img,#boxTwo img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+	<body>
+		<div id="box">
+            <img src="./03ba9b79a273425d924e384dd011a876.jpg" alt="">
+        </div>
+        <div id="boxTwo">
+                <img src="./03ba9b79a273425d924e384dd011a876.jpg" alt="">
+        </div>
+        <script>
+            let a = {
+                age: 1,
+                jobs: {
+                    first: 'FE'
+                }
+            }
+            let c = JSON.stringify(a)
+            console.log(c)
+            let b = {...a}
+            a.jobs.first = 'native'
+            console.log(b.jobs.first) // native
+            c = JSON.parse(c)
+            console.log(c)
+
+
+            let ab = {
+                age:18,
+                name:{
+                    second:undefined
+                }
+            }
+            let newAB = JSON.parse(JSON.stringify(ab))
+            ab.name.second = 'ksdkfkljgjjj';
+            newAB.name.second = '123456789';            
+            console.log(ab,newAB)
+            {
+                let obj = {
+                    a: 1,
+                    b: {
+                        c: 2,
+                        d: 3,
+                    },
+                }
+                obj.c = obj.b
+                obj.e = obj.a
+                obj.b.c = obj.c
+                obj.b.d = obj.b
+                obj.b.e = obj.b.c;
+                console.log(obj)
+                //console.log(JSON.stringify(obj))
+                //let newObj = JSON.parse(JSON.stringify(obj))
+                //console.log(newObj)
+            }
+            {
+                let a = {
+                    age: undefined,
+                    sex: Symbol('male'),
+                    jobs: function() {},
+                    name: 'yck'
+                }
+                a.jobs = JSON.stringify(a.jobs)
+                console.log(a.jobs)
+                let b = JSON.parse(JSON.stringify(a))
+                console.log(b) // {name: "yck"}
+            }
+            {
+                // 使用 * 表示这是一个 Generator 函数
+                // 内部可以通过 yield 暂停代码
+                // 通过调用 next 恢复执行
+                function* test() {
+                    let a = 1 + 2;
+                    yield 2;
+                    yield 3;
+                }
+                let b = test();
+                console.log(b.next()); // >  { value: 2, done: false }
+                console.log(b.next()); // >  { value: 3, done: false }
+                console.log(b.next()); // >  { value: undefined, done: true }
+            }
+            {
+                console.log([1, 2, 3].map((v) => v + 1))
+                const flattenDeep = (arr) => Array.isArray(arr)
+                ? arr.reduce( (a, b) => [...a, ...flattenDeep(b)] , [])
+                : [arr]
+
+                flattenDeep([1, [[2], [3, [4]], 5]])
+                console.log(flattenDeep([1, [[2], [3, [4]], 5]]))
+            }
+            {
+                function a() {
+                    console.log(12);
+                }
+
+                function b() {
+                    console.log(10);
+                }
+
+                function c() {
+                    console.log(100);
+                }
+
+
+                [a, b].reduce((a, b) => a(b()))
+            }
+            {
+                function sleep() {
+                    return new Promise(resolve => {
+                        setTimeout(() => {
+                            console.log('finish')
+                            resolve("sleep");
+                        }, 1000);
+                    });
+                }
+                async function test() {
+                    let value = await sleep();
+                    console.log("object");
+                }
+                test()
+            }
+            {
+                //可以很方便的使用 Proxy 来实现一个数据绑定和监听
+                let onWatch = (obj, setBind, getLogger) => {
+                let handler = {
+                    get(target, property, receiver) {
+                    getLogger(target, property)
+                    return Reflect.get(target, property, receiver);
+                    },
+                    set(target, property, value, receiver) {
+                    setBind(value);
+                    return Reflect.set(target, property, value);
+                    }
+                };
+                return new Proxy(obj, handler);
+                };
+
+                let obj = { a: 1 }
+                let value
+                let p = onWatch(obj, (v) => {
+                    value = v
+                    }, (target, property) => {
+                    console.log(`Get '${property}' = ${target[property]}`);
+                })
+                p.a = 2 // bind `value` to `2`
+                p.a // -> Get 'a' = 2
+            }
+        </script>
+	</body>
+</html>
