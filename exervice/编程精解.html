@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>习题1</title>
+    </head>
+    <style>
+        body,div,img{
+            padding:0;
+            margin:0;
+        }
+        body{
+            /* position: relative; */
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+	<body>
+		<div id="box">
+            <img src="./03ba9b79a273425d924e384dd011a876.jpg" alt="">
+        </div>
+       <script>
+           {
+                let total = 0, count = 1;
+                while(count<=10){
+                    total += count;
+                    count += 1;
+                }
+                console.log(total)
+                function fac(n){if(n==0) return 1;else return fac(n-1)*n }
+                console.log(fac(5))
+           }
+       </script>
+	</body>
+</html>
