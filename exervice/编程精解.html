@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>习题1</title>
+		<title>编程精解练习</title>
     </head>
     <style>
         body,div,img{
@@ -21,15 +21,301 @@
         </div>
        <script>
            {
-                let total = 0, count = 1;
-                while(count<=10){
-                    total += count;
-                    count += 1;
-                }
-                console.log(total)
-                function fac(n){if(n==0) return 1;else return fac(n-1)*n }
-                console.log(fac(5))
+            let total = 0, count = 1;
+            while(count<=10){
+                total += count;
+                count += 1;
+            }
+            console.log(total)
+            function fac(n){if(n==0) return 1;else return fac(n-1)*n }
+            console.log(fac(5))
            }
+           {
+            var luigis = 109;
+            //undefined
+            luigis = luigis - 35;
+            console.log(luigis)
+            //74
+            //关键字不能作为变量名 
+            //关键字和保留字的完整列表：break case catch continue default delete do else false  finally for function 
+            //if implements in instanceof interface let new null package private protected public return static 
+            // switch throw true try typeof var void while with yield this 
+            Math.max(67,99)
+            Math.min(88,33)+100;
+            // confirm(new Date())
+            // if(prompt('你好', '...')=='123456'){
+            //      confirm(new Date())
+            // }
+           // var theNumber = Number(prompt('Pick a number','')); 
+            // if(!isNaN(theNumber)){
+            //     alert('your number is the square root of'+theNumber*theNumber)
+            // }else{
+            //     alert("Why didn't you give me a number？")
+            // }
+            //var num = Number(prompt('Pick a number','0')); 
+            // if(num<10) confirm('my name is '+num);
+            // else if(num<100) confirm('my name is '+num);
+            // else confirm('my name is '+num);
+            var number = 0;
+            while(number<=12){
+                console.log(number);
+                number = number +2 ;}
+           }
+            for(let number2 =0;number2<=12;number2=number2+2){
+                    console.log(number2)
+            }
+            {
+                var result2 =1;var counter2 =1 ;
+                for(var counter2 =1 ;counter2<=10;counter2++){
+                    result2 = result2 *2;
+                }
+            }
+            {
+                for(var current=20; ; current++){
+                   
+                    if(current>10000){
+                        break;
+                    }
+                    if(current%7 !=0){
+                        continue;
+                    }
+                }
+                console.log(current)
+            }
+            {
+                // switch(prompt('What is the weather like?')){
+                //     case 'rainy':
+                //         console.log('Remember to bring an umbrella')
+                //         break;
+                //     case 'sunny':
+                //         console.log('Dress lightly')
+                //         break
+                //     case 'cloudy':
+                //         console.log('Go outside');
+                //         break;
+                //     default :
+                //         console.log('Unknown weather type!');
+                //         break;
+                // }
+            }
+            {
+                let sjx = '#######'
+                for(let i=1; i<=7;i++){
+                   
+                    console.log(sjx.substr(0,i))
+                    
+                    
+                }
+                console.log('sjfjj')
+            }
+            {
+                // for(let i=1;i<=100;i++){
+                //     if(i%3==0 && i%5==0){
+                //         console.log('FizzBuzz')
+                //     }else if(i%3==0){
+                //         console.log('Fizz')
+                //     }else if(i%5==0){
+                //         console.log('Buzz')
+                //     }else{
+                //         console.log(i)
+                //     }
+                // }
+                let num =  1;
+                // while(num<=100){
+                //     if(num%3==0 && num%5==0){
+                //         console.log('FizzBuzz')
+                //     }else if(num%3==0){
+                //         console.log('Fizz')
+                //     }else if(num%5==0){
+                //         console.log('Buzz')
+                //     }else{
+                //         console.log(num)
+                //     }
+                //     num++
+                // }
+            }
+            function size(n,val1='#',val2=' '){
+                let num = n*n;
+                let content = '';
+                console.log('djf'+val2 +'dff'+content+'mmnn')
+                for(let i=1;i<=num;i++){
+                    if(Math.ceil(i/n)%2==1){
+                        
+                        if(i%n%2==1){
+                            content += val1;
+                        }else{
+                            content += val2;
+                        }
+                    }else{
+                        if(i%n%2==1){
+                            content += val2;
+                        }else{
+                            content += val1;
+                        }
+                        
+                    }
+                    if(i%n==0){
+                         content += '\n';
+                    }
+                    
+                }
+                console.log(content)
+                return content
+                //for(let b)
+            }
+            size(10)
+            
+             console.log('sdfdsf\njkjjj')
+       </script>
+       <script>
+           document.write('第三章函数'+'<br/>')
+           document.write('第三章'+'\n')
+            function square(x){
+                return x*x
+            }
+            console.log(square(20))
+            {
+                let makeNoise = function(){
+                    console.log('Pling')
+                }
+                makeNoise()
+                 
+                let power = function(base,exponent){
+                    let result = 1;
+                    for(let i=0;i<exponent;i++){
+                        result*= base;
+
+                    }
+                    return result;
+                }
+                console.log(power(2,10));
+
+            }
+            {//嵌套作用域
+                let landscape = function(){
+                    let result = '';
+                    let flat = function(size){
+                        for(let i=0;i<size;i++){
+                            result +='_';
+                        }
+                    };
+                    let mountain = function(size){
+                        result += '/';
+                        for(let i=0;i<size;i++){
+                            result +='"';
+                        }
+
+                    }
+                    flat(3);
+                    mountain(3);
+                    flat(6);
+                    mountain(6);
+                    flat(1);
+                    return result;
+                }
+                console.log(landscape())
+            }
+            {
+                var num = 0;
+                function chicken(){
+                    num++;
+                    return egg();
+
+                }
+                function egg(){
+                    if(num >5){
+                        return num;
+                    }else{
+                        return chicken()
+                    }
+                }
+                console.log(chicken()+'came first')
+                function computeMaxCallStackSize() {
+                    try {
+                        return 1 + computeMaxCallStackSize();
+                    } catch (e) {
+                        // Call stack overflow
+                        return 1;
+                    }
+                }
+                console.log(computeMaxCallStackSize())
+                function powers(base,exponent=null){
+                    exponent = exponent ||2;
+                    let result = 1;
+                    for(let i=0;i<exponent;i++){
+                        result *= base;
+
+                    }
+                    return result;
+                }
+                console.log(powers(4));
+                console.log(powers(4,4))
+            }
+            {
+                function wrapValue(n){
+                    var localVariable = n;
+                    return function(m=0){
+                        return localVariable+m;
+
+                    }
+                }
+                let warp1 = wrapValue(1);
+                let warp2 = wrapValue(78);
+                console.log(warp1());
+                console.log(warp1(2));
+                console.log(warp2(2));
+            }
+            {
+                function pos(base,val){
+
+                    if(val==0){
+                        return 1;
+                    }else{
+                        return base*pos(base,val-1)
+                    }
+                }
+                console.log(pos(3,10))
+                function newVal(base,val=0){
+                    let result = 1;
+                    for(let i=0;i<val;i++){
+                        result *= base;
+                    }
+                    return result;
+                }
+                console.log(newVal(3,10))
+            }
+            {
+                function printFarmInventory(cows,chickens){
+                    let cowString = String(cows);
+                    while(cowString.length<3){
+                        cowString = '0'+ cowString;
+                    }
+                    console.log(cowString +'cows');
+                    let chickensString = String(chickens);
+                    while(chickensString.length<3){
+                        chickensString = '0'+ chickensString;
+                    }
+                    console.log(chickensString+'Chickens')
+                    
+                }
+                printFarmInventory(11111,12);
+                //封装函数
+                function printVal(number,width){
+                    let numberString = String(number);
+                    while(numberString.length<width){
+                        numberString = '0'+numberString;
+                    }
+
+                }
+                function printDa(cows,chickens,pigs){
+                    console.log(printVal(cows,5) + ' cows');
+                    console.log(printVal(chickens,5) + ' cows');
+                    console.log(printVal(pigs,5) + ' cows');
+                    console.log(arguments)
+                }
+                printDa(5,13,96)
+
+            }
        </script>
 	</body>
 </html>
