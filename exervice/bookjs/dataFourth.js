@@ -116,18 +116,26 @@ console.log(reverseArray(1,20,3,4,5,6,7,8,9,60))
 
 
 {//去掉数组里面包含的属性
-    function Object(obj,num){
+    function ObjectArray(obj,arr){
         let obj2 = obj;
-        for(let i=0;i<num.length;i++){
+        for(let i=0;i<arr.length;i++){
             for(let key in obj){
-                if(num[i]==key){
-                    
+                if(arr[i]==key){
+                    delete obj2[key]
                 }
             }
         }
+        return obj2;
     }
-
+    let obj ={
+        a:'2',
+        b:'324',
+        name:'sss'
+    }
+    let arr = ['a','b']
+    console.log(ObjectArray(obj,arr))
 }
+
 
 
 
