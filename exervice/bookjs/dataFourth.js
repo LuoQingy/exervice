@@ -24,7 +24,46 @@ delete anObject.left;
 console.log(anObject);
 console.log('left' in anObject);
 console.log('name' in anObject);
-
+console.log('记录开始');
+{
+    let journal = [];
+    function abbEbtry(events,didSquirrel){
+        journal.push({
+            events:events,
+            squirrel:didSquirrel
+        })
+    }
+    abbEbtry(['work','touched tree','pizza','running','television'],false);
+    abbEbtry(['work','ice cream','cauliflower','lasagna','touched tree'],false);
+    abbEbtry(['work','cycling','break','peanuts','beer'],true);
+    console.log(journal);
+    function phi(table){
+        return (table[3]*table[0]-table[2]*table[1])/
+                Math.sqrt((table[2]+table[3])*
+                        (table[0]+table[1])*
+                        (table[1]+table[3])*
+                        (table[0]+table[2]))      
+    }
+    console.log(phi([76,23,4,3]));
+    console.log(phi('发生次数'));
+    function hasEvent(event,entry){
+        return entry.events.indexOf(event) != -1;
+    }
+    function tableFor(event,journal){
+        let table = [0,0,0,0];
+        for(let i=0;i<journal.length;i++){
+            let entry =journal[i],index=0;
+            if(hasEvent(event,entry)){
+                index +=1;
+            }
+            if(entry.squirrel){
+                index +=2;
+            }
+            table[index] +=1;
+        }
+        return table;
+    }
+}
 
 
 
@@ -130,10 +169,57 @@ console.log(reverseArray(1,20,3,4,5,6,7,8,9,60))
     let obj ={
         a:'2',
         b:'324',
-        name:'sss'
+        name:'sss',
+        c:'true',
+        d:'yu',
+        e:'english',
+        f:'eart',
     }
-    let arr = ['a','b']
-    console.log(ObjectArray(obj,arr))
+    let arr = ['a','b','c','d']
+    console.log(ObjectArray(obj,arr));
+
+}
+{// 3
+        var egs = [
+            {name_1: 'name_1...'},
+            {name_2: 'name_4...'},
+            {name_3: 'name_3...'},
+            {name_0: 'name_0...'},
+        ]
+        var result = {}
+        var key ='children'
+        s(egs)
+
+        function s(arrs) {
+            arrs.forEach((o, i) => {
+                //console.log('---'+ i + ': ', result)
+                if (!result[key]) {
+                    result[key] = [o]
+                } else {
+                    o[key] = [result]
+                    result = o
+                }
+             })
+        }
+
+        console.log(result);
+        var obj = {};
+        var newKey ='rest'
+        var lists = [1,2,3,4];
+        console.log(lists.reverse())
+        function arrayToList(arrs){
+            let art = arrs.reverse();
+            art.forEach((item,index)=>{
+                console.log(item);
+                if(!obj[newKey]){
+                    result[key] = item;
+                }else{
+                    
+                }
+            })
+            return obj;
+        }
+        arrayToList(lists)
 }
 
 
