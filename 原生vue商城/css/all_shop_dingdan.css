@@ -1,0 +1,13 @@
+#all_shop_dingdan{background: #f5f5f5;}
+.header_box{width: 100%;height: 50px;background: linear-gradient(-45deg,#f91681,#f91641);display: flex;flex-direction: row;align-items: center;}
+.header_box_left{flex: 1;}
+.header_box_left img{width: 30px;height: 30px;margin-left: 7px;}
+.header_box_title{flex: 1;text-align: center;line-height: 50px;color: white;font-size: 16px;}
+.header_box_right{flex: 1;}
+
+.content_list{width: 100%;margin-top: 10px;}
+.content_list .van-card{border-bottom: 1px solid #C4C4C4;}
+.van-pull-refresh{height: 100vh;}
+.shop_car_btn_box{width: 100%;height: 35px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;}
+.shop_car_btn{padding:5px 10px;font-size: 14px;border: 1px solid #999;border-radius: 5px;color: #999;}
+.shop_car_btn:first-child{margin-right: 10px;}

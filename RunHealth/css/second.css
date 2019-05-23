@@ -1,0 +1,129 @@
+
+/*#second{
+	max-height: 37.75rem;
+}*/
+
+.second_header{
+	width: 10.8rem;height: 7.87rem;
+	padding-top: 2.2rem;
+	background: #b7b5b6;
+}
+.second_header img{
+	width: 10.8rem;height: 5.05rem;
+}
+.second_header ul{
+	width: 10.8rem ;height:2.82rem;
+	border-bottom: 0.26rem solid #f6f6f6;
+	background: white;
+}
+.second_header li{
+	width: 2.7rem;height: 2.82rem;
+}
+.second_header li a{
+	width: 2.7rem;height: 0.86rem;
+	padding-top: 1.96rem;
+	text-align: center;
+	display: inline-block;
+}
+.second_header .pation{
+	background: url(../img/22.png) no-repeat 0.73rem 0.42rem;
+	background-size: 9.4rem 1.32rem;
+}
+.second_header .ranking_list{
+	background: url(../img/22.png) no-repeat -2rem 0.42rem;
+	background-size: 9.4rem 1.32rem;
+}
+.second_header .my_feiend{
+	background: url(../img/22.png) no-repeat -4.74rem 0.42rem;
+	background-size: 9.4rem 1.32rem;
+}
+.second_header .kaka{
+	background: url(../img/22.png) no-repeat -7.4rem 0.42rem;
+	background-size: 9.4rem 1.32rem;
+}
+.second_content{
+	width: 10.8rem;
+}
+ .the_same{
+	width: 9.85rem;height: 1.46rem;
+	line-height: 1.46rem;
+	padding-left: 0.5rem;
+	font-size: 0.43rem;
+	padding-right: 0.45rem;
+}
+ .the_same img{
+	width: 0.8rem;height: 0.67rem;
+	vertical-align: middle;
+}
+ .the_same span{
+	width: 1.2rem;
+	background: url(../img/6.png) no-repeat 0.8rem ;
+	background-size: 0.49rem 0.53rem;
+}
+.activity_content{
+	width: 10.8rem;
+	border-bottom: 0.23rem solid #f5f5f5;
+}
+.second_item1{
+	width: 10.8rem;
+}
+.second_item1 img{
+	width: 10.8rem;height: 3.6rem;
+}
+.second_item1 div{
+	width: 9.85rem;height: 2.1rem;
+	padding-left: 0.5rem;
+	font-size: 0.4rem;
+	padding-right: 0.45rem;
+}
+.second_item1 div p{
+	width: 9.85rem;height: 0.9rem;
+	line-height: 0.9rem;
+}
+.second_item1 div p b{
+	font-size: 0.5rem;
+}
+.second_item1 div p .proceed{
+	width: 1.4rem;height: 0.56rem;
+	line-height: 0.56rem;
+	text-align: center;
+	margin-top: 0.2rem;
+	color: white;
+	font-size: 0.24rem;
+	background: #00e15a;
+	border-radius: 0.05rem;
+}
+.second_item1 div .second_data{
+	border-bottom: 0.02rem solid #dedede;
+}
+.refer .refer_content{
+	width: 9.85rem;
+	padding-left: 0.5rem;
+	font-size: 0.43rem;
+	padding-right: 0.45rem;
+}
+.refer .refer_content li{
+	width: 9.85rem;height: 2.19rem;
+	padding: 0.18rem 0rem 0.24rem 0rem;
+	border-top:0.02rem solid #dddddd;
+	
+	font-size: 0.45rem;
+}
+.refer .refer_content li img{
+	width: 3.12rem;height: 2.19rem;
+}
+.refer .refer_content li span{
+	float: right;
+	margin-left: 0.2rem;
+    width: 6.53rem;height: 2.19rem;
+}
+
+
+
+
+
+
+
+
+
+

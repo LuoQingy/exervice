@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<title>订单详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/shop_dingdan.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/vant.css"/>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vant.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery2.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="shop_dingdan">
+			<div class="adress_box" @click="gotoadress()">
+				<div class="adress_box_one">
+					<van-icon name="location-o" size="25px"/>
+				</div>
+				<div class="adress_box_two">
+					<div class="shouhuoren">
+						<span class="shouhuoren_name">收件人：钟闰明</span>
+						<span class='shouhuoren_phone'>18200793063</span>
+					</div>
+					<div class="shouhuoren_address">
+						收货地址:阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬大师傅阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯蒂芬大师傅
+					</div>
+				</div>
+				<div class="adress_box_three">
+					<van-icon name="arrow" size="20px"/>
+				</div>
+			</div>
+			<div class="shopping_car_box">
+				<van-card
+				  :num="shop_num"
+				  :price="zongjia"
+				  desc="描述信息"  
+				  title="商品标题"
+				  :thumb="imageURL"
+				/>
+			</div>
+			
+			<van-submit-bar
+			  :price="zongjia_money"
+			  button-text="提交订单"
+			  @submit="onSubmit"
+			>
+			  <!-- <span slot="tip">
+				你的收货地址不支持同城送, <span>修改地址</span>
+			  </span> -->
+			</van-submit-bar>
+			
+			
+		</div>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#shop_dingdan',
+				data(){
+					return{
+						checked:true,
+						imageURL:'../imges/shop_ex.png',
+						zongjia:130,
+						shop_num:1,
+						zongjia_money:0
+					}
+				},
+				mounted(){
+					this.jisuanzongjia()
+				},
+				methods: {
+					jisuanzongjia(){
+						var num_money = this.zongjia
+						this.zongjia_money = num_money*100
+					},
+				  onSubmit() {
+				    vant.Toast('提交订单');
+				  },
+				  gotoadress(){
+					  window.location.href='../address/address.html'
+				  },
+				}
+			})
+		</script>
+	</body>
+</html>

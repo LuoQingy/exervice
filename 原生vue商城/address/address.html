@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>地址列表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/vant.css" />
+		<link rel="stylesheet" type="text/css" href="../css/address.css"/>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vant.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery2.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="address">
+			<div class="header_box">
+				<div class="header_box_left">
+					<img src="../imges/back.png" @click='onClickLeft()'/>
+				</div>
+				<div class="header_box_title">
+					{{title}}
+				</div>
+				<div class="header_box_right"></div>
+			</div>
+			
+			<van-address-list 
+			v-model="chosenAddressId" 
+			:list="list" 
+			 @add="onAdd" 
+			 @edit="onEdit" />
+
+
+		</div>
+
+		<script type="text/javascript">
+			new Vue({
+				el: '#address',
+				data() {
+					return {
+						chosenAddressId: '1',
+						title:"地址列表",
+						list: [{
+								id: '1',
+								name: '张三',
+								tel: '13000000000',
+								address: '浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室'
+							},
+							{
+								id: '2',
+								name: '李四',
+								tel: '1310000000',
+								address: '浙江省杭州市拱墅区莫干山路 50 号'
+							}
+						],
+					}
+				},
+
+				methods: {
+					onAdd() {
+						window.location.href = 'edit_address.html'
+					},
+
+					onEdit(item, index) {
+						window.location.href = 'edit_address.html'
+					},
+					onClickLeft() {
+						window.history.back(-1);
+					},
+				}
+			})
+		</script>
+	</body>
+</html>

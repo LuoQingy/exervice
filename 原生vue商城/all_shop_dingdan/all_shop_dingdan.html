@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<title>全部订单</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/all_shop_dingdan.css" />
+		<link rel="stylesheet" type="text/css" href="../css/vant.css" />
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vant.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery2.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id='all_shop_dingdan'>
+			<div class="header_box">
+				<div class="header_box_left">
+					<img src="../imges/back.png" @click='onClickLeft()'/>
+				</div>
+				<div class="header_box_title">
+					{{title}}
+				</div>
+				<div class="header_box_right"></div>
+			</div>
+
+			<van-tabs v-model="active">
+				<van-tab title="待付款">
+
+					<div class="content_list">
+						<van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+
+							<van-card num="2" price="2.00" desc="描述信息" title="商品标题" :thumb="imageURL">
+								<div slot="footer" class="shop_car_btn_box">
+									<div class="shop_car_btn">查看评价</div>
+									<div class="shop_car_btn">待付款</div>
+								</div>
+							</van-card>
+							<van-card num="2" price="2.00" desc="描述信息" title="商品标题" :thumb="imageURL">
+								<div slot="footer" class="shop_car_btn_box">
+									<div class="shop_car_btn">查看评价</div>
+									<div class="shop_car_btn">待付款</div>
+								</div>
+							</van-card>
+							<p>刷新次数: {{ count }}</p>
+						</van-pull-refresh>
+					</div>
+
+				</van-tab>
+
+				<van-tab title="待评价">
+					内容 2
+
+				</van-tab>
+
+				<van-tab title="待发货">内容 3</van-tab>
+				<van-tab title="已发货">内容 4</van-tab>
+			</van-tabs>
+
+
+
+
+		</div>
+
+
+
+		<script type="text/javascript">
+			new Vue({
+				el: '#all_shop_dingdan',
+				data() {
+					return {
+						title: '订单列表',
+						active: 0,
+						imageURL: '../imges/shop_ex.png',
+						count: 0,
+						isLoading: false
+					}
+				},
+				methods: {
+					onClickLeft() {
+						window.history.back(-1);
+					},
+					onRefresh() {
+						setTimeout(() => {
+							this.$toast('刷新成功');
+							this.isLoading = false;
+							this.count++;
+						}, 500);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

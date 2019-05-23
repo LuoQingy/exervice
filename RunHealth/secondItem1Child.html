@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var head = document.getElementsByTagName('head')[0];
+			var meta = document.createElement('meta');
+			meta.name = "viewport";
+			var i = window.devicePixelRatio>1?1/ window.devicePixelRatio:1;
+			console.log(i);
+			meta.content = "width=device-width,user-scalable=no,initial-scale="+i+",maximum-scale="+i+",minimum-scale="+i;
+		    head.appendChild(meta);
+
+		</script>		
+		<script type="text/javascript">
+			var html = document.getElementsByTagName('html')[0];
+			var winWidth = window.innerWidth;
+			var font = winWidth/10.8;
+			html.style.fontSize = font+'px';//适配100px
+			console.log(winWidth);
+			console.log(font);
+		</script>
+		<script type="text/javascript" src="js/tools.js" ></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{text-decoration: none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-appearance: none;color: darkgrey;}
+			li{list-style: none;}
+			img{border: none;vertical-align: top;}
+			h1,h2,h3,h4,h5,h6{font-weight: normal;}
+			#secondItem1Child{
+				width: 100%;height: 100%;			
+				font-size: 0.3rem;
+				color: #000000;
+			}
+			#secondItem1Child .secondItem1ChildHeader h3{
+				width:9.2rem;height: 1.5rem;
+				line-height: 1.5rem;
+				background: white url(img/seItem1Child2.png) no-repeat 0.5rem 0.37rem;
+				background-size:0.85rem 0.76rem ;
+				padding-left: 1.6rem;
+				font-size: 0.51rem;
+				font-weight: bold;
+				position: fixed;
+				top: 0rem;left: 0rem;				
+				border-bottom: 0.06rem solid #e3e3e3;
+			}
+			.secondItem1ChildContent{
+				margin-top: 1.5rem;
+				width: 10.8rem;
+			}
+			#secondItem1Child .ChildContentImg1 img{
+				width: 10.8rem;height: 4.71rem;
+			}
+			#secondItem1Child .ChildContentLotto{
+				width: 9.85rem;
+				padding-left: 0.47rem;
+				padding-right: 0.48rem;
+			}
+			.ChildContentLotto .lottoP1{
+				width: 9.85rem;height: 1.02rem;
+				line-height: 1.02rem;
+				font-size: 0.32rem;
+			}
+			.ChildContentLotto .myLottoUl{
+				width: 9.85rem;height: 3.94rem;
+			}
+			.ChildContentLotto .myLottoUl li{
+				width: 2.2rem;height: 3.94rem;
+				float: left;
+				text-align: center;
+				margin-left: 0.35rem;
+			}
+			.ChildContentLotto .myLottoUl .lottoPhone{
+				margin-left: 0rem;
+			}
+			.ChildContentLotto .myLottoUl li img{
+				width: 2.2rem;height: 2.2rem;
+			}
+			.ChildContentLotto .myLottoUl li p{
+				padding-top: 0.3rem;
+				line-height: 0.5rem;
+				color: #9f9f9f;
+			}
+			.ChildContentLotto  .lottoRule div{
+				width: 9.85rem;
+				font-size: 0.3rem;
+				color: #000000;
+			}
+			.ChildContentLotto  .lottoRule .lottoRuleP{
+				height: 1.17rem;line-height: 1.17rem;
+				font-size:0.45rem;
+				color: #000000;font-weight: 400;
+			}
+			.ChildContentLotto  .lottoRule ul li{
+				width: 9.85rem;
+				font-size: 0.3rem;
+				color: #000000;
+			}
+			.secondItem1ChildFloor{
+				width: 9.8rem;height: 1.22rem;
+				background: #f0f0f0;
+				padding: 0.19rem 0.5rem 0.31rem 0.5rem;
+				position: fixed;
+				left: 0rem;bottom: 0rem;
+			}
+			.secondItem1ChildFloor input{
+				width: 9.8rem;height: 1.22rem;
+				border-radius: 0.6rem;
+				background: #fb6522;
+				color: #ffffff;
+				font-size: 0.43rem;
+				outline: none;
+				border: none;
+			}
+		</style>
+		
+	</head>
+	<body id='body'>
+		<script type="text/javascript">
+			var body = id('body');
+			body.style.width = view().w + 'px';
+			body.style.height = view().h + 'px';
+		</script>
+		<div id="secondItem1Child">
+			<div class="secondItem1ChildHeader">
+				<h3>积硅步 &nbsp; 至千里</h3>
+			</div>
+			<div class="secondItem1ChildContent">
+				<div class="ChildContentImg1">
+					<img src="img/seItem1Child1.png"/>
+				</div>
+				<div class="ChildContentLotto">
+					<p class="lottoP1">每天走满5210步，累计运动10天，有机会抽取以下奖品：</p>
+					<ul class="myLottoUl">
+						<li class="lottoPhone">
+							<img src="img/seItem1Child3.png"/>
+							<p>HUAWEI <br /> MATE10</p>
+						</li>
+						<li>
+							<img src="img/seItem1Child4.png"/>
+							<p>运动蓝牙耳机</p>
+						</li>
+						<li>
+							<img src="img/seItem1Child5.png"/>
+							<p>运动健康折叠 <br />背包</p>
+						</li>
+						<li>
+							<img src="img/seItem1Child6.png"/>
+							<p>HUAWEI <br />WATCH 2 Pro </p>
+						</li>
+					</ul>
+					<div class="lottoRule">
+						<p class="lottoRuleP">活动细则</p>
+						<ul>
+							<li>1.本次为走路达标活动，挑战成功即可抽奖（活动期间只能抽奖1次）；</li>
+							<li>2.参与活动时，请打开“自动同步”开关，确保数据能正常上传；</li>
+							<li>3.本次奖品：HUAWEI MATE10（1台）、HUAWEI WATCH2 PRO (2台）、运动蓝牙耳机（50个）、折叠背包（100个）</li>
+							<li>4.奖品会在活动结束后15个工作日寄出；</li>
+							<li>5.请于中奖后5天内提交领奖信息，逾期未提交视为放弃领奖资格；</li>
+							<li>6.我们会对您的信息严格保密并承诺不会用于其他商业用途；</li>
+							<li>7.活动问题可咨询官方客服QQ：800812218；</li>
+							<li>8.华为运动健康运营团队对本活动拥有最终解释权；</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="secondItem1ChildFloor">
+					<input type="button" value="马上参加" />
+			</div>
+		</div>
+		<script type="text/javascript">
+//			每天走满5210步，累计运动10天，有机会抽取以下奖品：
+//
+//			HUAWEI MATE10运动蓝牙耳机运动健康折叠背包HUAWEI WATCH 2 Pro
+//			
+//			活动细则
+//			
+//			1.本次为走路达标活动，挑战成功即可抽奖（活动期间只能抽奖1次）；
+//			2.参与活动时，请打开“自动同步”开关，确保数据能正常上传；
+//			3.本次奖品：HUAWEI MATE10（1台）、HUAWEI WATCH2 PRO (2台）、运动蓝牙耳机（50个）、折叠背包（100个）；
+//			4.奖品会在活动结束后15个工作日寄出；
+//			5.请于中奖后5天内提交领奖信息，逾期未提交视为放弃领奖资格；
+//			6.我们会对您的信息严格保密并承诺不会用于其他商业用途；
+//			7.活动问题可咨询官方客服QQ：800812218；
+//			8.华为运动健康运营团队对本活动拥有最终解释权；
+		</script>
+	</body>
+</html>

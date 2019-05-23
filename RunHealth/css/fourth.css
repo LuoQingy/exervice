@@ -1,0 +1,135 @@
+
+/*#fourth{
+	max-height: 24.66rem;
+}*/
+
+.four_header{
+	width: 10.8rem;
+	margin-top: 2.27rem;
+	border-bottom: 0.24rem solid #f4f4f4;
+}
+.four_header .clone{
+	width: 10.14rem;
+	line-height: 1.5rem;
+	padding: 0.2rem 0.33rem 0rem 0.33rem;
+	font-size: 0.44rem;
+}
+.four_header .clone img{
+	width: 1.29rem;height: 1.28rem;
+}
+.four_header .clone>div span{
+	width: 8.65rem;height: 1.46rem;
+	display: inline-block;
+	background: url(../img/6.png) no-repeat 8.25rem;
+	background-size: 0.49rem 0.53rem;
+	border-bottom: 0.04rem solid #f4f4f4;	
+}
+.four_header .clone p{
+	width: 8.65rem;height: 1.46rem;
+	padding-left: 1.49rem;
+	border-bottom: 0.04rem solid #f4f4f4;
+	background: url(../img/6.png) no-repeat 9.55rem;
+	background-size: 0.49rem 0.53rem;
+}
+.four_header .clone p span{
+	width: 2.6rem;text-align: center;
+	background: url(../img/f2.png) no-repeat 0rem  0.5rem;
+	background-size: 0.64rem 0.55rem;
+}
+.four_header .headerUl{
+	width: 10.8rem;height: 2.8rem;
+}
+.four_header .headerUl li{
+	width: 1.45rem;height: 2.43rem;
+	padding: 0.37rem 0.55rem 0rem 1.36rem;
+	text-align: center;line-height: 1rem;
+}
+.four_header .headerUl li img{
+	width: 1.36rem;height: 1.29rem;
+}
+.four_header .headerUl li img:nth-of-type(3){
+	width: 1.45rem;
+}
+.four_content{
+	width: 10.8rem;
+	background: #f4f4f4;
+}
+.four_content .draw{
+	width: 10.12rem;height: 0.64rem;
+	padding: 0.46rem 0.35rem 0.45rem 0.33rem;
+	font-size: 0.4rem;
+	line-height: 0.64rem;
+	background: white;
+}
+.four_content .draw img{
+	width: 0.83rem;height: 0.64rem;
+}
+.four_content .draw>span{
+	width: 2rem;height: 0.64rem;	
+	display: inline-block;
+	background: url(../img/6.png) no-repeat 1.46rem;
+	background-size: 0.49rem 0.53rem;
+}
+.report,.my_medal{
+	width: 10.12rem;
+	padding: 0rem 0.35rem 0rem 0.33rem;
+	font-size: 0.42rem;
+	margin-top: 0.17rem;
+	background: white;
+}
+.my_reportLast{
+	height: 1.52rem;
+	line-height:1.52rem;		
+}
+.my_reportLast img{
+	width: 0.83rem;height: 0.69rem;vertical-align: middle;
+	
+}
+.my_reportNext{
+	width: 10.12rem;height: 1.85rem;
+}
+.my_reportNext li{
+	width: 3.37rem;height: 1.85rem;
+	line-height: 0.8rem;
+}
+.my_reportNext li b{
+	font-size:0.56rem ;
+}
+.my_reportNext li p{
+	color: #000000;
+}
+.my_medal img{
+	width: 0.69rem;height: 0.75rem;
+	vertical-align: middle;
+}
+.my_medal .medel_prev{
+	width: 10.12rem;
+	height: 1.35rem;line-height: 1.35rem;
+}
+.my_medal .medel_prev span{
+	width: 2rem;
+	background: url(../img/6.png) no-repeat 1.46rem;
+	background-size: 0.49rem 0.53rem;
+}
+.my_medal .medel_next{
+	width: 10.12rem;height: 2.08rem;
+	line-height: 2.08rem;
+}
+.my_medal .medel_next img{
+	width: 8.74rem;height: 1.42rem;
+}
+.four_floor{
+	width: 10.12rem;
+	padding: 0rem 0.35rem 0rem 0.33rem;
+}
+.four_floor ul{
+	width: 10.12rem;
+}
+.four_floor ul li{
+	width: 10.12rem;height: 1.45rem;
+	line-height: 1.45rem;
+	font-size: 0.45rem;
+	border-bottom: 0.04rem solid #f4f4f4;
+	background: url(../img/6.png) no-repeat 9.3rem;
+	background-size: 0.49rem 0.53rem;
+}

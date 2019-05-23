@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<title>我的</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../css/my.css" />
+		<link rel="stylesheet" type="text/css" href="../css/vant.css" />
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vant.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery2.0.js" type="text/javascript" charset="utf-8"></script>
+		<style scoped="scoped">
+			/* 底部导航栏样式 */
+			.tabbar_box{position: fixed;bottom: 0;height: 50px;width: 100%;left: 0;display: flex;border-top: 1px solid #c4c4c4;background: white;}
+			.tab-item{flex: 1;flex-direction: column;align-items: center;justify-content: center;display: flex;font-size: 14px;color: black;} 
+			.ative_img001{width: 25px;height: 25px;background: url(../imges/home_btn.png)no-repeat;background-size: 100% 100%;}
+			.ative_img002{width: 25px;height: 25px;background: url(../imges/shop-cart-2.png)no-repeat;background-size: 100% 100%;}
+			.ative_img003{width: 25px;height: 25px;background: url(../imges/My_red.png)no-repeat;background-size: 100% 100%;}
+			.tab-item:last-child .tab-link{color: red !important;}
+		</style>
+	</head>
+	<body>
+		<div id="my">
+			<div class="my_top">
+				<div class="touxiang">
+					<img src="../imges/logo.png" />
+				</div>
+				<p class="namees">我的账户名称</p>
+			</div>
+
+			<van-cell value="查看全部" icon="orders-o" is-link url="../all_shop_dingdan/all_shop_dingdan.html">
+				<template slot="title">
+					<span class="custom-text">我的订单</span>
+				</template>
+			</van-cell>
+
+			<van-row class="user-links">
+				<van-col span="6">
+					<a href="../all_shop_dingdan/all_shop_dingdan.html">
+						<van-icon name="pending-payment"></van-icon>
+						待付款
+					</a>
+				</van-col>
+				<van-col span="6">
+					<a href="../all_shop_dingdan/all_shop_dingdan.html">
+						<van-icon name="records"></van-icon>
+						待评价
+					</a>
+
+				</van-col>
+				<van-col span="6">
+					<a href="../all_shop_dingdan/all_shop_dingdan.html">
+						<van-icon name="tosend"></van-icon>
+						待发货
+					</a>
+				</van-col>
+				<van-col span="6">
+					<a href="../all_shop_dingdan/all_shop_dingdan.html">
+						<van-icon name="logistics"></van-icon>
+						已发货
+					</a>
+				</van-col>
+			</van-row>
+
+
+			<van-cell title="收货地址" icon="location-o" is-link url="../address/address.html"></van-cell>
+
+
+			<!-- 底部导航栏 -->
+			<div class="tabbar_box">
+				<a class="tab-item" href='../index.html'>
+					<div class="ative_img001"></div>
+					<span class="tab-link">首页</span>
+				</a>
+				<a class="tab-item" href='../shop_car/shop_car.html'>
+					<div class="ative_img002"></div>
+					<span class="tab-link">购物车</span>
+				</a>
+				<a class="tab-item" href='#'>
+					<div class="ative_img003"></div>
+					<span class="tab-link">我的</span>
+				</a>
+			</div>
+
+		</div>
+
+
+		<script type="text/javascript">
+			new Vue({
+				el: '#my',
+
+			})
+		</script>
+	</body>
+</html>

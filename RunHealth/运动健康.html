@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>运动健康</title>
+		<script type="text/javascript">
+			var head = document.getElementsByTagName('head')[0];
+			var meta = document.createElement('meta');
+			meta.name = "viewport";
+			var i = window.devicePixelRatio>1?1/ window.devicePixelRatio:1;
+			console.log(i);
+			meta.content = "width=device-width,user-scalable=no,initial-scale="+i+",maximum-scale="+i+",minimum-scale="+i;
+		    head.appendChild(meta);
+
+		</script>
+		
+		<script type="text/javascript">
+			var html = document.getElementsByTagName('html')[0];
+			var winWidth = window.innerWidth;
+			var font = winWidth/10.8;
+			html.style.fontSize = font+'px';//适配100px
+			console.log(winWidth);
+			console.log(font);
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/first.css"/>
+		<link rel="stylesheet" type="text/css" href="css/second.css"/>
+		<link rel="stylesheet" type="text/css" href="css/third.css"/>
+		<link rel="stylesheet" type="text/css" href="css/fourth.css"/>
+		<link rel="stylesheet" type="text/css" href="css/fourChild.css"/>				
+		<script type="text/javascript" src="js/tools.js" ></script>
+		<script type="text/javascript" src="js/index.js" ></script>	
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script> 
+		<script type="text/javascript" src="vue/vue-router.js" ></script>
+	</head>
+	<body id="body">
+		<script type="text/javascript">
+			var body = id('body');
+			body.style.width = view().w + 'px';
+			body.style.height = view().h + 'px';
+			console.log(view().h)
+		</script>
+		<div id="big">			
+			<div id="wrap" class="page showPage">
+				<nav class="nav">
+					<ul>
+						<li class="show">首页</li>
+						<li>发现</li>
+						<li>健康</li>
+						<li>我的</li>
+					</ul>
+					<a class="active"></a>
+					<a></a>
+					<a></a>
+					<a></a>
+				</nav>
+				<div class="box">
+					<section id="first" class="fl showPage">
+						<div class="header back-picture">
+							<ul>
+								<li class="fl">热量<br /><b>46</b>千卡 </li>
+								<li class="fl">距离 <br /> <b>1.53</b>公里</li>
+								<li class="fr">爬高<br /> <b>--</b></li>
+							</ul>
+							<div class="run">
+								<p>运动</p>
+								<p><b>240.36</b>公里  <span class="fr">次数<b>27</b></span> </p>
+								<p><input type="button" id="btn" class="btn" value="开始运动" /></p>
+							</div>
+						</div>
+						<div class="content">
+							<p class="item"> <b>训练课程</b> <span class="fr">更多</span> </p>
+							<ul class="myUl">
+								<li>
+									<img src="img/8.png" />
+								</li>
+								<li class="li2">
+									<img src="img/9.png" />
+								</li>
+							</ul>
+							<p class="item plan"> <b>训练计划</b> <span class="fr xun">训练记录</span> </p>
+							<div class="rest">
+								<img src="img/12.png"/>
+							</div>
+							<div class="serve">
+								<p> <b>服务</b> <span class="fr">更多</span></p>
+								<ul class="shu">
+									<li class="fl ya"><p>舒眠减压</p>不负休憩好时光 </li>
+									<li class="fl he"><p>薄荷减脂</p>一对一尊享服务</li>
+									<li class="fl bao"><p>步步保</p>走路换保障</li>
+								</ul>
+							</div>
+							<div class="poids">
+								<ul>
+									<li class="ming">
+										<p class="ti"> <b>体重</b> </p>
+										<p class="zhong">体重 <b>65.0</b>公斤 <span>体脂</span><b>--</b> <span class="fr">2/3</span></p>
+									</li>
+									<li class="ju">
+										<img src="img/17.png"/>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="first_last">
+							<p class="noter">记录</p>
+							<div class="intell" id="intell">
+								<p><b>智能设备</b></p>
+								<ul>
+									<li class="fl" id="intel2">血糖仪</li>
+									<li class="fl" id="intel6">血压计</li>
+									<li class="fl" id="intel3">体脂秤</li>
+									<li class="fl" id="intel4">心率设备</li>
+								</ul>
+							</div>
+							<p class="gestion">管理我的卡片</p>
+						</div>
+					</section>
+					<section  id="second" class="fl">
+						<div class="second_header">
+							<a href="">
+								<img src="img/s21.png"/>
+							</a>
+							<ul>
+								<li class="fl">
+									<a class="pation" href=""><b>优选</b></a>
+								</li>
+								<li class="fl">
+									<a class="ranking_list" href=""><b>排行榜</b></a>
+								</li>
+								<li class="fl">
+									<a class="my_feiend" href=""><b>我的好友</b></a>							
+								</li>
+								<li class="fl">
+									<a class="kaka" href=""><b>卡卡抽奖</b></a>
+								</li>
+							</ul>
+						</div>
+						<div class="second_content">
+							<div class="activity">
+								<div class="the_same">
+									<a href="">
+										<img src="img/23.png"/>
+										<b>活动</b>
+										<span class="fr">更多</span>
+									</a>
+								</div>
+								<div class="activity_content">
+									<div class="second_item1">
+									<img src="img/24.png"/>
+									<div >
+										<p><b>12星座健身赛之天枰座</b></p>
+										<p class="second_data">  
+											<span>86688人参加</span><span class="fr">10月20日-11月20日</span> 
+											<span class="fr proceed">正在进行</span>
+										</p>
+									</div>
+								</div>
+								<div class="second_item1">
+									<img src="img/25.png"/>
+									<div >
+										<p><b>超越自我   &nbsp; 6出边界</b></p>
+										<p >  
+											<span>736042人参加</span><span class="fr">10月20日-11月20日</span> 
+											<span class="fr proceed">正在进行</span>
+										</p>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+						<div class="second_floor">
+							<div class="refer">
+								<div class="the_same">
+									<a href="">
+										<img src="img/26.png"/>
+										<b>咨询</b>
+										<span class="fr">更多</span>
+									</a>
+								</div>
+								<div class="refer_content">
+									<ul>
+										<li>
+											<a href="">
+												<img src="img/s11.png"/>
+												<span><b>断食减肥？不如卸掉一条腿</b></span>
+											</a>
+										</li>
+										<li>
+											<a href="">
+												<img src="img/s12.png"/>
+												<span><b>比百度更懂跑步的小腿相关问题</b></span>
+											</a>
+										</li>
+										<li>
+											<a href="">
+												<img src="img/s13.png"/>
+												<span><b>情绪管理好，血压降下来</b></span>
+											</a>
+										</li>
+										<li>
+											<a href="">
+												<img src="img/s14.png"/>
+												<span><b>揭秘奶茶为何成为新时代睡眠杀手！</b></span>
+											</a>
+										</li>
+										<li>
+											<a href="">
+												<img src="img/s15.png"/>
+												<span><b>减肥到底怎么吃？</b></span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section id="third" class="fl">
+						<div class="third_header">
+							<img src="img/t1.png"/>
+						</div>
+						<div class="third_content">
+							<ul class="third_ul1">
+								<li class="fl prendre">在线预约</li>
+								<li class="fl doctor">在线医生</li>
+								<li class="fl base">数据共享</li>
+							</ul>
+							<div class="third_robuste">
+								<div class="she">
+									<b>健康设备</b>
+									<span class="fr">我的设备</span>
+								</div>
+								<ul class="material">
+									<li class="fl fat"><b>体脂秤</b></li>
+									<li class="fl blood"><b>血压计</b></li>
+									<li class="fl glucose"><b>血糖仪</b></li>
+									<li class="fl heart"><b>心率设备</b></li>
+								</ul>
+							</div>
+							<div class="health_data">
+								<b>健康数据</b>
+								<i class="fr"></i>
+							</div>
+						</div>
+					</section>
+					<section class="fl" id="fourth">
+						<div class="four_header">
+							<div class="clone">			
+									<div id="clone_first">
+										<img src="img/f1.png"/>
+										<span><b>风云再起</b></span>	
+									</div>							
+								<p><b>我的等级</b><span class="fr">健将</span></p>						
+							</div>
+							<ul class="headerUl">
+									<li class="fl">
+										<img src="img/f3.png"/><b>通知</b>
+									</li>
+									<li class="fl">
+										<img src="img/f4.png"/><b>目标</b>
+									</li>
+									<li class="fl">
+										<img src="img/f5.png"/><b>个人资料</b>
+									</li>
+								</ul>
+						</div>
+						<div class="four_content">
+							<div class="draw">
+									<img src="img/f6.png"/>
+									<b>卡卡抽奖</b>
+									<span class="fr">76卡卡</span>
+							</div>
+							<div class="report">
+								<div class="my_reportLast">
+									<a href="">
+										<img src="img/f7.png"/>
+										<b>我的成绩单</b>
+									</a>
+								</div>
+								<ul class="my_reportNext">
+									<li class="fl">
+										<a href="">
+											累计
+											<p><b>368</b>天</p>
+										</a>
+									</li>
+									<li class="fl best">
+											<a href="">单日最佳
+												<p><b>26,053</b>步</p>
+											</a>
+									</li>
+									<li class="fl defeat">
+										<a href="">最近一周战胜  
+											<p><b>43.91</b>%</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="my_medal">
+								<div class="medel_prev">
+									<a href="">
+										<img src="img/f8.png"/>
+										<b>我的勋章</b><span class="fr">共13张</span>
+									</a>
+								</div>
+								<div class="medel_next">
+									<a href="">
+										<img src="img/f9.png"/>
+									</a>
+								</div>
+							</div>					
+						</div>
+						<div class="four_floor">
+							<ul>
+								<li>
+									<a href=""><b>订单管理</b></a>
+								</li>
+								<li>
+									<a href=""><b>数据共享</b></a>
+								</li>
+								<li>
+									<a href=""><b>设置</b></a>
+								</li>
+								<li>
+									<a href=""><b>问题与建议</b></a>
+								</li>
+								<li>
+									<a href=""><b>关于</b></a>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+			</div>
+			
+			<div id="fourHeaderChild" class="page">
+				<div class="four_header_child_fixed" id="fourHeaderChildHeader">
+					<h3>帐号中心</h3>
+				</div>
+				<div class="four_header_child_header">
+					<div>
+						<img src="img/frChild1.png"/>
+						<span>风云再起</span>
+					</div>
+				</div>
+				<div class="four_header_child_content">
+					<div class="child_message">
+						<ul>
+							<li class="fl" v-for="i in fourHeaderChild.child_message">
+								<img v-bind:src="i.src"/>
+								<span>{{i.name}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="HuaWeiSever">
+						<p>华为服务</p>
+						<div class="HuaWeiSever_content">
+							<ul class="HuaWeiSever_Ul1">
+								<li>
+									<img src="img/frChild7.png"/>
+									<span>云服务    <b class="fr">已开启</b></span>
+								</li>
+								<li v-for="i in fourHeaderChild.HuaWeiSever_Ul1">
+									<img v-bind:src="i.src"/>
+									<span>{{i.name}}</span>
+								</li>
+							</ul>
+							<ul class="HuaWeiSever_Ul2" v-if="fourHeaderChild.isShow">
+								<li  v-for="i in fourHeaderChild.HuaWeiSever_Ul2">
+									<img v-bind:src="i.src"/>
+									<span>{{i.name}}</span>
+								</li>								
+							</ul>
+						</div>
+						<button class="HuaWeiSeverbtn" id="severbtn" @click='show'>更多服务</button>
+					</div>
+					<div class="account_and_security">
+						<p>帐号与安全</p>
+						<ul class="account_and_securityUl1">
+							<li>帐号</li>
+							<li>帐号保护   <span class="fr">已开启</span></li>
+							<li class="equipment_manage">设备管理</li>
+						</ul>
+						<p>设置</p>
+						<ul class="account_and_securityUl2">
+							<li>设置</li>
+						</ul>
+					</div>
+				</div>
+				<div class="four_header_child_floor">
+					<input type="button" id="quitBtn"  value="退出帐号" />
+				</div>
+			</div>	
+		</div>	
+		<script type="text/javascript" src="js/vue_data.js" ></script>
+		<script type="text/javascript">
+			fnIndex();
+		</script>
+	</body>
+</html>

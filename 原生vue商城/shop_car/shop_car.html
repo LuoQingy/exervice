@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/vant.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/shop_car.css"/>
+		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vant.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery2.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="shop_car">
+			<div class="header_box">
+				<div class="header_box_left">
+					<img src="../imges/back.png" @click='onClickLeft()'/>
+				</div>
+				<div class="header_box_title">
+					{{title}}
+				</div>
+				<div class="header_box_right"></div>
+			</div>
+			
+			<van-checkbox-group class="card-goods" v-model="checkedGoods">
+			  <van-checkbox
+			    class="card-goods__item"
+			    v-for="item in goods"
+			    :key="item.id"
+			    :name="item.id"
+			  >
+			    <van-card
+			      :title="item.title"
+			      :desc="item.desc"
+			      :num="item.num"
+			      :price="formatPrice(item.price)"
+			      :thumb="item.thumb"
+			    />
+			  </van-checkbox>
+			</van-checkbox-group>
+			<van-submit-bar
+			  :price="totalPrice"
+			  :disabled="!checkedGoods.length"
+			  :button-text="submitBarText"
+			  @submit="onSubmit"
+			/>
+			
+		</div>
+		
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#shop_car',
+				data(){
+					return {
+						title:'购物车',
+						checkedGoods: ['1', '2', '3'],
+						goods: [{
+						  id: '1',
+						  title: '进口香蕉',
+						  desc: '约250g，2根',
+						  price: 200,
+						  num: 1,
+						  thumb: '../imges/shop_ex.png'
+						}, {
+						  id: '2',
+						  title: '陕西蜜梨',
+						  desc: '约600g',
+						  price: 690,
+						  num: 1,
+						  thumb: '../imges/shop_ex.png'
+						}, {
+						  id: '3',
+						  title: '美国伽力果',
+						  desc: '约680g/3个',
+						  price: 2680,
+						  num: 1,
+						  thumb: '../imges/shop_ex.png'
+						}]
+					}
+				},
+				computed: {
+				  submitBarText() {
+				    const count = this.checkedGoods.length;
+				    return '结算' + (count ? `(${count})` : '');
+				  },
+				
+				  totalPrice() {
+				    return this.goods.reduce((total, item) => total + (this.checkedGoods.indexOf(item.id) !== -1 ? item.price : 0), 0);
+				  }
+				},
+				methods: {
+				  formatPrice(price) {
+				    return (price / 100).toFixed(2);
+				  },
+				
+				  onSubmit() {
+				    window.location.href='../shop_dingdan/shop_dingdan.html'
+				  },
+					onClickLeft() {
+						window.history.back(-1);
+					},
+				}
+			})
+		</script>
+	</body>
+</html>
