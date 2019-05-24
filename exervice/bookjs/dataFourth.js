@@ -206,20 +206,35 @@ console.log(reverseArray(1,20,3,4,5,6,7,8,9,60))
         var obj = {};
         var newKey ='rest'
         var lists = [1,2,3,4];
-        console.log(lists.reverse())
-        function arrayToList(arrs){
-            let art = arrs.reverse();
-            art.forEach((item,index)=>{
-                console.log(item);
-                if(!obj[newKey]){
-                    result[key] = item;
-                }else{
-                    
-                }
-            })
-            return obj;
+        var listObj = [];
+        for(let i=0;i<lists.length;i++){
+            let obj2 = {
+                value:lists[i],
+                rest:'th',
+            }
+            if(i==lists.length-1){
+                obj2.rest = null;
+            }
+            listObj.push(obj2)
         }
-        arrayToList(lists)
+        console.log(lists.reverse());
+        console.log(listObj);
+        let newList = listObj.reverse();
+        function arrayToList(arrs){
+            arrs.forEach((o, i) => {
+                console.log('---'+ i + ': ', obj);
+                if (!obj[newKey]) {
+                    obj[newKey] = o;
+                    console.log('第几个：'+i);
+                    console.log(obj);
+                } else {
+                    o[newKey] = obj;
+                    obj = o;
+                }
+             })
+        }
+        arrayToList(newList);
+        console.log(obj)
 }
 
 
