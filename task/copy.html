@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>把内容复制到剪贴板上</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+        <style>
+            @media only screen and (min-width: 750px) {
+                body {
+                    width: 750px;
+                }
+            }
+            body,div,img{
+                padding:0;
+                margin:0;
+            }
+            body{
+                /* position: relative; */
+                width: 100%;
+                height: 100%;
+            }
+            #box,#demo{
+                font-size: 16px;
+            }
+           </style>
+    </head>
+    
+    
+	<body>
+		<div id="box" >
+            把内容复制到剪贴板上           
+            
+        </div>
+        <p id="demo">是否复制</p>
+        <script src="./copy.js"></script>
+        <script>
+            try {
+                copy("http://www.hbbgsb.cn/main/actionApiCodeInfo/2",'box');
+            } catch (error) {
+                console.log(error);
+            }
+        </script>
+	</body>
+</html>

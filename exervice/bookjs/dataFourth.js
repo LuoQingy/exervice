@@ -234,7 +234,8 @@ console.log(reverseArray(1,20,3,4,5,6,7,8,9,60))
              })
         }
         arrayToList(newList);
-        console.log(obj)
+        console.log(obj);
+        var reverlist= [];
 }
 
 

@@ -15,30 +15,85 @@
             height: 100%;
         }
         #box {
-            position:absolute;
-            top:0;
-            left: 0px;
-            right: 100px;
-            bottom: 0px;
+           width: 100%;
+           height: 200px;
         }
-        #boxTwo{
+        /* #boxTwo{
             width: 100px;
             position: fixed;;
             top:0;
             right: 0px;
             bottom: 0px;
-        }
+        }*/
         #box img,#boxTwo img{
             width: 100%;
             height: 100%;
-        }
+        } 
     </style>
-	<body>
+	<body id="body">
 		<div id="box">
             <img src="./03ba9b79a273425d924e384dd011a876.jpg" alt="">
         </div>
-        <div id="boxTwo">
-                <img src="./03ba9b79a273425d924e384dd011a876.jpg" alt="">
-        </div>
+        <!-- 要复制的目标 -->
+        <input id="foo" value="https://github.com/zenorocha/clipboard.js.git">
+
+        <!-- 按钮及驱动 -->
+            <!--保证button clipboard-target 和 input id 一致-->
+        <button class="btn" data-clipboard-action="copy" 
+            data-clipboard-target="#foo">复制到剪贴板</button>！
+        <div id='str'>helloworld</div>
+        <button id="btn" >点击复制上面的文字</button>
+        <script>
+            var Btn = document.getElementById('btn')
+            Btn.onclick = function() {
+                    console.log(';;;;')
+                    var copy = document.getElementById('str')
+                    if (document.body.createTextRange) { // 该属性只有IE支持
+                        var range = document.body.createTextRange();
+                        range.moveToElementText(copy);
+                        range.select();
+                        document.execCommand('Copy');
+                        console.log('已复制1');
+                    } else if (window.getSelection) {
+                        var selection = window.getSelection();
+                        selection.removeAllRanges();
+                        var range = document.createRange();
+                        console.log(range);
+                        range.selectNodeContents(copy);
+                        console.log(range.selectNodeContents(copy));
+                        selection.addRange(range);
+                        
+                        document.execCommand('Copy');
+                        console.log(document.execCommand('Copy'))
+                        selection.removeAllRanges();
+                        console.log(selection.removeAllRanges());
+                        console.log('已复制2');
+                    }
+                }
+               // Btn.ontouchmove() 
+      </script>
+      <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/clipboard.js/1.6.0/clipboard.min.js"></script> -->
+
+      <script type = "text/javascript"> 
+            //加载clipboadr.js
+            //.btn 按class绑定功能按钮
+            try {
+                Clipboard.isSupported()
+                var clipboard = new Clipboard('.btn');
+                //复制成功触发的事件
+                clipboard.on('success', function(e) {
+                //自定义事件区域
+                    console.log(e);
+                });
+                //复制失败触发的事件
+                clipboard.on('error', function(e) {
+                //自定义事件区域
+                    console.log(e);
+                });
+            } catch (error) {
+                console.log(error);
+            }
+              
+      </script>
 	</body>
 </html>
