@@ -205,7 +205,7 @@ console.log(reverseArray(1,20,3,4,5,6,7,8,9,60))
         console.log(result);
         var obj = {};
         var newKey ='rest'
-        var lists = [1,2,3,4];
+        var lists = [1,2,3,4,45,6,56,8,34,155,11];
         var listObj = [];
         for(let i=0;i<lists.length;i++){
             let obj2 = {
@@ -236,9 +236,120 @@ console.log(reverseArray(1,20,3,4,5,6,7,8,9,60))
         arrayToList(newList);
         console.log(obj);
         var reverlist= [];
+        console.log(newListFn(obj))
+
+
+function newListFn(obj){
+    // console.log("JSON.parse(JSON.stringify(obj))");
+    // console.log(JSON.stringify(obj));
+    // console.log(JSON.parse(JSON.stringify(obj)));
+    // console.log("JSON.parse(JSON.stringify(obj))");
+    // var obj = {
+    //     val:'1',
+    //     rest:{
+    //         val:'2',
+    //         rest:{
+    //             val:'3',
+    //             rest:null
+    //         }
+    //     }
+    // }
+    function deepCopy(obj) {
+        var result = [];
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                if (typeof obj[key] === 'object') {
+                    result.push(deepCopy(obj[key])); //递归复制
+                } else {
+                    result.push(obj[key]);
+                }
+            }
+        }
+        return result;
+    }
+    let erwei = deepCopy(obj);
+    console.log(erwei);
+    function unid(arr){
+        var arr1 = (arr + '').split(',');//将数组转字符串后再以逗号分隔转为数组
+        var arr2 = arr1.map(function(x){
+            return Number(x);
+        });
+        return arr2;
+    }
+    console.log(unid(erwei));
+    let yiweiList = unid(erwei)
+    console.log(yiweiList.length--)
+    console.log(yiweiList)
+
+
+    var newArr = [];
+    
+    function fun(arr){
+        for(var i=0;i<arr.length;i++){
+            if(Array.isArray(arr[i])){
+                fun(arr[i]);
+            }else{
+                newArr.push(arr[i]);
+            }
+        }
+    }
+    fun(erwei);
+    console.log(newArr);//[1, 2, 3, 4, 5, 6]
+    function arrrt(arr){
+        var arrStr = arr.toString();
+        console.log(arrStr);//1,2,3,4,5,6,7,8
+        var strArr = arrStr.split(',');
+        console.log(strArr)//["1", "2", "3", "4", "5", "6", "7", "8"]
+    }
+    arrrt(erwei)
+    console.log("unid(erwei)");
+    function structuralClone(obj) {//深度嵌套对象的拷贝
+        return new Promise(resolve => {
+          const {port1, port2} = new MessageChannel();
+          port2.onmessage = ev => resolve(ev.data);
+          port1.postMessage(obj);
+          console.log(port1.postMessage(obj))
+        });
+    }
+   
+      // 注意该方法是异步的
+      // 可以处理 undefined 和循环引用对象
+      (async () => {
+        const clone = await structuralClone(obj)
+        console.log(clone)
+      })()
+    // 求数组转换成jso
+    //['codeZh', 'codeCn', 'taobao.cn', 'taobao.com'] 
+    // 输出
+    /*
+    { 
+    'code':{Zh:'codeZh',Cn:'codeCn'},
+    'taobao':{'.cn':'taobao.cn},'.com':'taobao.com'
+    }
+    */
+
+    const resultObj = {};
+    let arr = ['codeZh', 'codeCn', 'taobao.cn', 'taobao.com'];
+
+    let arrSplit = arr.map(item => (item.indexOf('.') !== -1 ? item.replace(/(\.)/g, ",$1").split(',') : item.replace(/([A-Z])+/g, ",$1").split(',')))
+
+    let arrGroup = arrSplit.map(item => ({ [item[0]]: { [item[1]]: item.join('') } }))
+
+    for (let i = 0; i < arrGroup.length; i++){
+        for (const [key, value] of Object.entries(arrGroup[i])) {
+            resultObj[key] = {
+            ...resultObj[key],
+            ...value
+            }
+        }
+    }
+
+    console.log(arrSplit);
+    console.log(arrGroup);
+    console.log(resultObj)
 }
 
-
+}
 
 
 
