@@ -294,6 +294,21 @@ function newListFn(obj){
         }
     }
     fun(erwei);
+    var a=[1,[2,[3,4]],5,6];
+    var res=[];
+    function parseArr(arr,res){
+        var i=0;
+        for(i=0;i<arr.length;i++){
+          if(arr[i] instanceof Array){
+            parseArr(arr[i],res);
+          }else{
+            res.push(arr[i]);
+          }
+        }
+    }
+    
+    parseArr(erwei,res);
+    console.log(res)
     console.log(newArr);//[1, 2, 3, 4, 5, 6]
     function arrrt(arr){
         var arrStr = arr.toString();
@@ -350,11 +365,56 @@ function newListFn(obj){
 }
 
 }
+function prepend(lists,num){//list 数组参数 一个新元素
+    lists.unshift(num);
+    console.log(lists)
+    var listObj = [];
+    let obj = {}
+    for(let i=0;i<lists.length;i++){
+        let obj2 = {
+            value:lists[i],
+            rest:'th',
+        }
+        if(i==lists.length-1){
+            obj2.rest = null;
+        }
+        listObj.push(obj2)
+    }
+    let newList = listObj.reverse();
+    function arrayToList(arrs){
+        arrs.forEach((o, i) => {
+            console.log('---'+ i + ': ', obj);
+            if (!obj[newKey]) {
+                obj[newKey] = o;
+                console.log('第几个：'+i);
+                console.log(obj);
+            } else {
+                o[newKey] = obj;
+                obj = o;
+            }
+            })
+    }
+    arrayToList(newList);
+    console.log(obj);
+}
+prepend([1,2,3,4,5,56,7,788,78],9999)
 
 
 
-
-
+{
+    console.log("elevenObj == twevenObj");
+    let  elevenObj = {
+        name:'你好'
+    };
+    let twevenObj = {
+        name:'你好'
+    };
+    let elevenArr = [1,2,3,4];
+    let twevenQArr = [1,2,3,4];
+    console.log(elevenObj == twevenObj);
+    console.log(elevenObj === twevenObj +'/n');
+    console.log(elevenArr == twevenQArr);
+}
 
 
 
