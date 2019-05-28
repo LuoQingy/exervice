@@ -73,7 +73,16 @@
                // Btn.ontouchmove() 
       </script>
       <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/clipboard.js/1.6.0/clipboard.min.js"></script> -->
-
+      <script src="./copyContent.js"></script>
+      <script >
+          setTimeout(() =>{
+            try {
+              console.log(copy("http://www.hbbgsb.cn/main/actionApiCodeInfo/2",'app'))
+            } catch (error) {
+              console.log(error)
+            }
+          },1000)
+      </script>
       <script type = "text/javascript"> 
             //加载clipboadr.js
             //.btn 按class绑定功能按钮

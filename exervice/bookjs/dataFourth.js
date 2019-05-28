@@ -201,7 +201,7 @@ console.log(reverseArray(1,20,3,4,5,6,7,8,9,60))
                 }
              })
         }
-
+    console.time();
         console.log(result);
         var obj = {};
         var newKey ='rest'
@@ -318,6 +318,13 @@ function newListFn(obj){
     }
     arrrt(erwei)
     console.log("unid(erwei)");
+    function flatten(arr){
+        while(arr.some(item=>Array.isArray(item))){
+          arr = [].concat(...arr);
+        }
+        return arr;
+    }
+    console.log(flatten(erwei))
     function structuralClone(obj) {//深度嵌套对象的拷贝
         return new Promise(resolve => {
           const {port1, port2} = new MessageChannel();
@@ -363,9 +370,9 @@ function newListFn(obj){
     console.log(arrGroup);
     console.log(resultObj)
 }
-
+console.timeEnd();
 }
-function prepend(lists,num){//list 数组参数 一个新元素
+function prepend(lists,num=''){//list 数组参数 一个新元素
     lists.unshift(num);
     console.log(lists)
     var listObj = [];
@@ -397,8 +404,10 @@ function prepend(lists,num){//list 数组参数 一个新元素
     arrayToList(newList);
     console.log(obj);
 }
-prepend([1,2,3,4,5,56,7,788,78],9999)
+console.time();
 
+prepend([1,2,3,4,5,56,7,788,78],9999)
+console.timeEnd();
 
 
 {
