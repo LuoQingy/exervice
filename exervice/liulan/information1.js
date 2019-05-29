@@ -1,46 +1,55 @@
-let information= function information(time=5000,check=false,id=0){
+let information= function information(id=0,title=0,type=0,startTime=0,endTime=0,check=true){
   var num  = 0;
   var lists = [];
-  if(id){
-      Cookies.set('id',id);
-  }
-  time = Number(time);
-  if(Cookies.get('num') && Cookies.get('num') != 'NaN'){
-      num = Number(Cookies.get('num'));
+  console.log(id,title,startTime,endTime,check)
+  if(Cookies.get('num')){
+     num = Number(Cookies.get('num'));
   }else{
-      localStorage.removeItem('lists')
+    localStorage.removeItem('lists');
+    Cookies.set('num','num');
   } 
   if(localStorage.getItem('lists')){
-      lists = JSON.parse(localStorage.getItem('lists'))
+    lists = JSON.parse(localStorage.getItem('lists'))
   }
-  if(check){
-      //console.log('yes');
-        num = num + time/1000;
-        //console.log(num);
-        Cookies.set('num',num);
-        //console.log(countDown(num));
-        
-        //console.log('函数里面')
-  }else if(!check && id){
+    
     let obj = {
       id:id,
+      title:title,
+      type:type,
+      num:0,
+      startTime:0,
+      endTime:0,
     }
-    let flag = true;
-    lists.forEach((item) => {
-      if(item.id==id){
-        flag = false;
+    if(startTime){
+      obj.startTime = startTime;
+    }
+    console.log(obj)
+    if(id){
+      let flag = true;
+      lists.forEach((item) => {
+        if(item.id==id){
+          flag = false;
+          if(endTime){
+            item.endTime = endTime;
+            item.num = countDown((item.endTime-item.startTime)/1000)
+          }
+          if(title){
+            item.title = title;
+          }
+        }
+      });
+      if(flag){
+        lists.unshift(obj);
       }
-    });
-    if(flag){
-      lists.push(obj);
     }
-  }
-    //console.log(lists)
+   
+    
+    console.log(id,title),lists;
     let stringLists = JSON.stringify(lists);
     localStorage.setItem('lists',stringLists);
   
   function countDown(times){
-    //console.log(times)
+    console.log(times)
     var day=0,
       hour=0,
       minute=0,
@@ -63,6 +72,6 @@ let information= function information(time=5000,check=false,id=0){
       return minute+"："+second;
     }
   }
-  return {durationTime:countDown(num),lists:lists};
+  return lists;
 }
   export default information
