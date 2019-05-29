@@ -1,7 +1,7 @@
 var copy = function copyContent(httpUrl,id,check=false){
     console.log(httpUrl,id);
     var copyContent = document.getElementById(id);
-    let content  = copyContent.innerHTML;
+    //let content  = copyContent.innerHTML;
     function loadAjax(){
         var ajax;
         if (window.XMLHttpRequest){
