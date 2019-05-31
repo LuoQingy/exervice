@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+	<title>提取业务</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+				border: 2px solid #007ed7;
+                background: #fff;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+				/* color: #002078; */
+				color: #000;
+			}
+		</style>
+	</head>
+	<script type="text/javascript" src="js/waveCircleProgress.js"></script>
+
+	<body>
+		<h2 id="jump">JS圆形波浪进度条</h2>
+		<button id="start">开始</button>
+
+		<canvas id="myCanvas" width="200px" height="200px" style="margin-left: 70px;">
+			浏览器或者次版本不支持canvas
+		</canvas>
+
+	</body>
+
+	<script>
+		var cricle = new WaveCircleProgress("myCanvas");
+		var num = 0
+		setInterval(()=>{
+			num = num+1;
+			num = num%100;
+			num =100;
+			cricle.setProgress(num);
+		},1000)
+		
+	</script>
+
+</html>

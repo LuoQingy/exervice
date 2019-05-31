@@ -125,6 +125,11 @@
                 font-size: 12px;
                 font-family: PingFang-SC-Medium;
             }
+            #tutorial{
+                /* border: 12px solid black; */
+                background: pink;
+                transform:rotate(90deg);
+            }
         </style>
     </head>
     <body id="body">
@@ -163,8 +168,116 @@
                 </p>
             </div>
         </div>
+        <div>
+            <h1>利用canvas来绘制圆弧</h1>
+            <canvas id='tutorial' width="300px" height="300px">
+    hjjhg
+            </canvas>
+            <p id="yuan"></p>
+        </div>
         <script>
-            //6.align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+            //画弧
+            //dot 圆点
+            //r 半径
+            //angle 圆心角
+            //angleOfSlope 与x轴的夹角
+            //pop 是否弹出
+            //title 标签
+            let yuan = document.getElementById('yuan');
+            function drawArc(dot, r, angle, angleOfSlope, pop, title){
+                var newDot = [dot[0], dot[1]];
+                var a = (angleOfSlope+angle/2)*Math.PI/180; 
+                if(pop){ //计算圆心的新坐标
+                    newDot[0] = dot[0]+10*Math.cos(a);
+                    newDot[1] = dot[1]+10*Math.sin(a);
+                }
+                if(!angleOfSlope){
+                    angleOfSlope = 0;
+                }
+                var aos = angleOfSlope*Math.PI/180;
+                var aos2 = (angleOfSlope+angle)*Math.PI/180;
+                var pstart = [newDot[0]+r*Math.cos(aos), newDot[1]+r*Math.sin(aos)]; //弧线的起点
+                var pend = [newDot[0]+r*Math.cos(aos2), newDot[1]+r*Math.sin(aos2)]; //弧线的终点
+                var pre = pstart;
+                for(var i=0; i < angle; i+=2){ //在angle范围内画弧
+                    rad = (i+angleOfSlope)*Math.PI/180;
+                    var cur = [r*Math.cos(rad)+newDot[0], r*Math.sin(rad)+newDot[1]];
+                    drawLine(pre,cur);
+                    pre = cur;
+                }
+            }
+            var num = 0;
+            function draw(timer,val){
+                let interval = timer/1000*60;
+                num += timer/1000*val;
+                
+                console.log(num)
+                var canvas = document.getElementById('tutorial');
+                if(canvas.getContext){
+                    var ctx = canvas.getContext('2d');
+                   // ctx.beginPath();
+                    // var x = 50 + 0* 100;
+                    // var y = 50 + 0 * 100;
+                    // var radius = 20;
+                    // var startAngle = Math.PI*(1.5);
+                    // var endAngle = Math.PI*1.5+Math.PI*(num/interval);
+                    // var direction =  false ;
+                    // ctx.strokeStyle="#0000ff";
+                    // ctx.lineWidth=10;
+                    // ctx.arc(x, y, radius, startAngle, endAngle, direction);
+                    // console.log(x,y)
+                    console.log(num/interval)
+                    // ctx.stroke();
+                    let newNum = num/interval;                  
+                    for(var i = 0; i < 3; i ++){
+                        for(var j = 0; j < 1; j ++){
+                            ctx.beginPath();
+                            var x = 28 + j * 100;
+                            var y = 28 + i * 100;
+                            var radius = 20;
+                            var startAngle = Math.PI*0;
+                            var endAngle = Math.PI*0+Math.PI*2;
+                            var direction =  false ;
+                            ctx.fillStyle="#0000ff";
+                            ctx.strokeStyle="#007ed7";
+                            ctx.lineWidth=1;
+                            ctx.arc(x, y, radius, startAngle, endAngle, direction);
+                            
+                            if(i > 1){
+                                
+                                ctx.fill();
+                            }else{
+                                ctx.stroke();
+                            }
+                            if(newNum == 2){
+                                num = 0;
+                                ctx.clearRect(0,0,60,60);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            setInterval(() =>{
+                draw(1000,2000/1000)
+            },1000)
+            // window.onbeforeunload = function(e) {
+            //     console.log('beforeunload');            
+            //     let sert = JSON.stringify(e)
+            //     localStorage.setItem('记录时间',sert)
+            //     console.log(e)
+            //     var  n  =  window.event.screenX  -  window.screenLeft; 
+            //     var  b  =  n  >  document.documentElement.scrollWidth-20;  
+            //     console.log(window.event.clientY  <  0  ||  window.event.altKey)
+            //     console.log(b  &&  window.event.clientY  <  0  ||  window.event.altKey)
+            //     console.log(b)
+            //     if(b  &&  window.event.clientY  <  0  ||  window.event.altKey) {  //页面关闭
+            //         sessionStorage.setItem('页面','离开');
+            //     }else{// 页面刷新  
+            //         sessionStorage.setItem('你好','刷新');
+            //     } 
+            //     return 1;
+            // };
         </script>
     </body>
 </html>

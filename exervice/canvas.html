@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+	<title>提取业务</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+                position: fixed;
+                top: 10px;
+                left: 10px;
+				border: 2px solid rgba(0, 126, 215, .6);
+                background: rgba(255, 255, 255, .6);
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+				/* color: #002078; */
+				color: #000;
+			}
+		</style>
+	</head>
+	<script type="text/javascript" src="./canvas.js"></script>
+
+	<body>
+		<h2 id="jump">JS圆形波浪进度条</h2>
+		<button id="start">开始</button>
+
+		<canvas id="myCanvas" width="50px" height="50px" style="margin-left: 70px;">
+			浏览器或者次版本不支持canvas
+		</canvas>
+
+	
+
+	<script>
+		var cricle = new WaveCircleProgress("myCanvas");
+		var num = 0;
+		let secondNum = 0;
+		let minute = 0
+		setInterval(()=>{
+			num = num+1;
+			num = num%60;
+			// num = 99;
+			minute = Math.floor(num/60);
+			secondNum = Math.floor((num/60*100)%100);
+			console.log(num,secondNum)
+            cricle.setProgress(secondNum);
+            console.log(cricle.setTextContent(minute+':'+num,'4篇'))
+		},1100)
+		window.onbeforeunload = function(e) {
+				console.log('beforeunload')
+				localStorage.setItem('记录时间',num)
+                return 1;
+			};
+		
+	</script>
+	</body>
+</html>
