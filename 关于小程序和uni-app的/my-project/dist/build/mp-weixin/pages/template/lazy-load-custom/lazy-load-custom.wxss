@@ -1,0 +1,15 @@
+
+.placeholder {
+	opacity: 1;
+	transition: opacity 0.4s linear;
+}
+.placeholder.loaded {
+	opacity: 0;
+}
+.uni-media-list-logo {
+	position: relative;
+}
+.uni-media-list-logo .image {
+	position: absolute;
+}
+
