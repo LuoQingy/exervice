@@ -20,9 +20,16 @@
 		<script src="./base64.js" type="text/javascript" charset="utf-8"></script>
 		
 		<script type="text/javascript">
-			
+			obj = {
+				name:'你好'
+			}
+			if(obj,111){
+				console.log('jjjj')
+			}else{
+				console.log('11111')
+			}
 			function appendCssLinkTagToHead(src){
-				var link = document.createElement("link");
+				var link = document.createElement("link");//创建link标签
 				link.type = "text/css";
 				link.rel = "stylesheet";
 				link.href = "data:text/css;base64," + Base.encode("img[data-src='" + src + "']" + "{background-image: url(" + src + ")}");
