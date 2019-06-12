@@ -4,12 +4,13 @@
 	//波长
 	var mWaveLength = 20;
 	//波高度
-	var mWaveheight = 4;
+	var mWaveheight = 3;
 	var mWaveDx = 0;
 	//当前进度
 	var mProgress = 0;
 	//最大值
 	var mMaxValue = 100;
+
 	var rem = "rem";
 	var px = "px";
 	//圆的颜色
