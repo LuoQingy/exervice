@@ -4,7 +4,7 @@
 	//波长
 	var mWaveLength = 20;
 	//波高度
-	var mWaveheight = 3;
+	var mWaveheight = 4;
 	var mWaveDx = 0;
 	//当前进度
 	var mProgress = 0;
