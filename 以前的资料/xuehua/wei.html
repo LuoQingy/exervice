@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background-image: url(img/15.jpg);
+				background-size:cover ;
+			}
+			#box{
+				width: 750px;
+				height: 560px;
+				/*border: 1px solid red;*/
+				margin: 50px auto;
+				position: relative;
+			}
+			button{
+				width: 30px;
+				height: 50px;
+				font-size: 18px;
+				border: none;
+				outline: none;
+				opacity: .7;
+				position: absolute;
+				top: 50%;
+			}
+			#left{
+				left: 0;
+			}
+			#right{
+				right: 0;
+			}
+			ul li{
+				list-style: none;
+				float: left;
+				width: 125px;
+				height: 140px;
+				/*background-position: 10px 10px;*/
+				box-shadow: 0 0 1px #ccc;
+				background-image: url(img/1.jpg);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="myUl">
+				
+			</ul>
+			<button id="left">&lt;</button>
+			<button id="right">&gt;</button>
+		</div>
+		<script type="text/javascript">
+			var body = document.getElementsByClassName("body")[0];
+			var myUl = document.getElementById("myUl");
+			var left = document.getElementById("left");
+			var right = document.getElementById("right");
+			var lis = document.getElementsByTagName("li");
+			var num = 1;
+			var timer = null;
+			var time=null;
+			var index=null;
+			//动态创建24个li元素
+			for (var i=0;i<24;i++) {
+				var x = i % 6;//求x的偏移度,余数
+				var y = Math.floor(i / 6);//求y轴的偏移度
+				var li = document.createElement("li");
+				li.style.backgroundPosition = x*(-125)+"px "+y*(-140)+"px";
+				myUl.appendChild(li);
+			}
+			//图片切换函数
+			function autoPlay(){
+				var arr = [];
+				//初始化数组
+				for (var i=0;i<24;i++) {
+					arr[i] = i;
+//					arr.push(i);
+				}
+				num++;
+				if(num>24){
+					num = 1;
+				}
+				timer = setInterval(function(){
+					var index = Math.floor(Math.random()*arr.length);
+					lis[arr[index]].style.backgroundImage = "url(img/"+num+".jpg)";
+					arr.splice(index,1);
+					if(arr.length == 0){
+						clearInterval(timer);
+					}
+					
+				},30)
+
+			}
+			
+		  time=setInterval(autoPlay,1000)
+			//左点击事件
+			left.onclick = function(){
+				clearInterval(timer);
+				
+				num--;
+				if(num<1){
+					num = 24;
+				}
+				autoPlay();
+			}
+			left.onmouseover = function(){
+				clearInterval(time);
+			}
+			left.onmouseout = function(){
+				time=setInterval(autoPlay,1000)
+			}
+			right.onmouseover = function(){
+				clearInterval(time);
+			}
+			right.onmouseout = function(){
+				time=setInterval(autoPlay,1000)
+			}
+			//右按钮事件
+			right.onclick = function(){
+				clearInterval(timer);
+				
+				num++;
+				if(num>24){
+					num = 1;
+				}
+				autoPlay();
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			
+			
+			
+			var obj ={
+				store,
+				get,
+				remove,
+			}
+			
+			function store(name,value,date){
+				var d = date||Session;
+				var time = new Date();
+				time.setDate(time.getDate()+d);
+				document.cookie = name+'='+value+';expires='+time;
+			}
+			
+			function get(name){
+				var arr = document.cookie.split(';');
+				var obj = {};
+				
+				for(var i=0;i<arr.length;i++){
+					var Arr = arr[i].split('=');
+					obj[Arr[0].trim()] = Arr[1].trim();
+				}
+				return obj[name];
+			}
+			
+			function remove(name){
+				var date = new Date();
+				date.setDate(date.getDate()-1)
+				if(obj.get(name)){
+					document.cookie = name+'=11;expires='+date;
+				}
+			}
+			
+			
+			obj.store('age',18,2)
+			obj.remove('pass')
+			var box = obj.get('pass')
+			
+			console.log(box)
+		</script>
+	</body>
+</html>

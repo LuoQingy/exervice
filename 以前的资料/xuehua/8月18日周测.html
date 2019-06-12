@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			1.js五种基本数据类型：string、number、boolean、null、undefined
+				三种引用数据类型：Math，Date，Array
+				Math中的随机函数：Math.random(),取0-1之间的随机数，取0不取1
+					       向上取整：Math.ceil()
+					       向下取整：Math.floor()
+					       四舍五入：Math.round()
+			2.数组中的常见方法：
+						push():在数组最后添加一个元素
+						join():将数组中的值拼接成字符串
+						reverse():数组倒序
+						indexOf():获取数组中指定元素的下标
+						splice():删除或者替换数组中指定元素
+						sort():数组排序，默认是按照字符编码从小到大排列
+			3.字符串中常见的方法：
+						split():将字符串切分成数组
+						substring(start,end):提取指定下标的字符串,留头不留尾
+						slice(start,end):提取指定下标的字符串,留头不留尾
+						substring和slice的区别：substring可以自动调整开始和结束下标的大小
+						substr(x1,x2):从下标x1开始提取x2个长度的字符串
+						charAt():获取字符串中指定字符的下标
+						toLowerCase():大写转小写
+						toUpperCase():小写转大写
+			4.两种定时器：
+						1.一次性定时器：setTimeOut()
+						2.间隔性定时器：setInterval()
+						定时器中this指向window
+			 清除定时器：1.clearTimeOut()，清除一次性定时器
+			 		    2.clearInterval(),清除间隔性定时器
+			5.闭包：函数内部嵌套函数
+			  闭包的作用：将局部变量保存在内存中，其他函数可以调用该函数的局部变量
+			  			闭包中变量的作用链：内部函数可以调用外部函数的变量，外部函数无法调用内部函数的变量
+			  			每次重新调用外部函数时，内存会为其重新分配一个地址，变量开始重新保存
+			 闭包的劣势：变量一直保存在内存中，占用内存
+			
+			原生js的AJAX的执行流程(四部曲)：
+				1.创建一个ajax实例对象
+					var ajax = null;
+					if(window.XMLHttpRequest){//如果存在，说明是非IE浏览器
+						ajax = new XMLHttpRequest();
+					}else{
+						ajax = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+			  	2.打开一个会话连接
+			  		ajax.open("GET","get.php",true)
+			  	3.状态函数事件
+			  		ajax.onreadyStateChange = function(){
+			  			if(ajax.readyState == 4 && ajax.status == 200){
+			  				var data = ajax.responseText||ajax.responseXML;
+			  				
+			  			}
+			  		}
+			  	4.发送请求：ajax.send()
+			  	get()和post()发送数据到后台的区别：
+			  		get将参数放在open的第二个参数中：ajax.open("GET","get.php?username="+值,true);
+					post()将参数写在send()中：ajax.send("username="+值+"&pass="+值);
+					注意post()方法需要http的请求头：ajax.setHttpHeader("content-type","application/x-www-form-urlencoded");
+					
+		-->
+		<script src="js/jquery-2.1.0.js"></script>
+		<script>
+//			function fn1(){
+//				var a = 10;
+//				function fn2(){
+//					alert(a);
+//				}
+//				return fn2;
+//			}
+//			var fff = fn1();//fn2
+//			fff();//调用fn2
+//			function fn1(){
+//				var a = 1;
+//				function fn2(){
+//					a++;
+//					console.log(a);
+//				}
+//				return fn2;
+//			}
+//			var t = fn1();
+//			t();
+//			t();
+//			var t1 = fn1();//重新分配内存地址保存变量值
+//			t1();
+//			function Array(arr){
+//				this.arr = arr;
+//			}
+			
+			
+		
+			//使用原型链自定义方法名
+//			Array.prototype.getRepeat = function(arr){
+//				var newArr = [];
+//				for (var i=0;i<arr.length;i++) {
+//					if(newArr.indexOf(arr[i]) == -1){
+//						newArr.push(arr[i]);//如果在新数组中找不到该值，将其添加进去新数组
+//					}
+//				}
+//				return newArr;//去重后的数组
+//			}
+//			//实例化对象调用getRepeat方法
+//			var arr1 = [1,1,2,2,3,3];
+//			var arr = new Array();//实例化对象调用方法
+//			var result = arr.getRepeat(arr1);
+//			console.log(result);
+			
+			
+//			function Student(name){
+//				this.name1 = name;
+//			}
+//			Student.prototype.getName = function(){
+//				return this.name1;
+//			}
+//			Student.prototype.setName = function(name){
+//				this.name1 = name;
+//			}
+//			var student = new Student("张三");
+//			student.setName("李四");
+//			var stu = student.getName();
+//			alert(stu);
+			
+//			var arr = [11,2,3,4,5];
+//			var arr1 = arr.sort(function(a,b){
+//				return a-b;//从小到大
+//			});
+////			alert(arr1);
+//			
+//			var arr2 = arr.sort(function(a,b){
+//				return b-a;//从大到小
+//			})
+//			alert(arr2)
+			
+			var str = prompt();
+			var arr = str.split("");//将字符串切成数组
+			var obj = {};//创建一个对象
+			for (var i=0;i<arr.length;i++) {
+				if(obj[arr[i]]){//判断对象中是否存在arr[i]这个key
+					obj[arr[i]]++;//如果存在，该key对应的value+1
+				}else{//否则对象中不存在该key,使该key的value值等于1
+					obj[arr[i]] = 1;
+				}
+			}
+			找出对象中最大的value值
+			var max = 0;//先定义默认的最大值为0
+			var maxLetter = null;//保存最多次数的字母
+//			var str = "abcabcddd";
+			for(x in obj){
+				if(max<obj[x]){
+					max = obj[x];
+					maxLetter = x;
+				}
+			}
+			console.log(max+","+maxLetter);
+			$.ajax({
+				type:"GET",
+				url:"get.php",
+				async:true,
+				dataType:"text",
+				data:{//传到后台的值
+					"username":$('#user').val(),
+					"password":$('#pass').val()
+				},
+				success:function(result){//result是从后台获取的值
+					console.log(result);
+				},
+				error:function(result){
+					
+				},
+				complete:function(){
+					
+				}
+			})
+			
+		</script>
+	</body>
+	
+</html>

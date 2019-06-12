@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 
+			 	本地存储：
+			 		cookie:
+			 		
+			 		用法：
+			 			document.cookie = "name = value"  //存储数据
+			 			
+			 			document.cookie  取数据，把全部数据都取出来
+			 		gfhgfhhh
+			 		cookie的范围
+			 			只有在服务器环境里面才能使用cookie
+			 			
+			 		cookie存储量： 20条
+			 		
+			 		
+			 		cooki修改数据:在写一个document.cookie = "name1=pl";
+			 			覆盖前面的数据
+			 			
+			 		cooki作用时间
+			 			设置时间：document.cookie = "name1=pl;expires="+date;
+			 				
+			 		
+			 		
+			*/
+			
+//			document.cookie = "name1=13";
+//			
+			var date = new Date();
+			date.setDate(date.getDate()+1)
+
+			console.log(date)
+			
+			document.cookie = "name1=pl;expires="+date;
+			var arr = document.cookie.split(';');
+			var obj = {};
+			
+			for(var i=0;i<arr.length;i++){
+				var Arr = arr[i].split('=');
+				obj[Arr[0]] = Arr[1];
+			}
+			console.log(obj.name)
+			
+		</script>
+	</body>
+</html>

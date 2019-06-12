@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			账户：<input type="text" id="userName"/><br />
+			密码：<input type="password" id="pass" /><br />
+			
+			<input type="button" name="btn" id="btn" value="登录" />
+			
+		</div>
+		
+		<script type="text/javascript">
+			
+			var text = document.getElementById('userName');
+			var pass = document.getElementById('pass');
+			var btn = document.getElementById('btn');
+			
+			autoLogin();
+			btn.onclick = function(){
+				//ajax  rep:sucess
+				document.cookie="userName="+text.value;
+				document.cookie="pass="+pass.value;
+				
+			}
+			
+			
+			function autoLogin(){
+				var arr = document.cookie.split(';');
+				var obj = {};
+				
+				for(var i=0;i<arr.length;i++){
+					var Arr = arr[i].split('=');
+					obj[Arr[0]] = Arr[1];
+				}
+				
+				text.value = obj[" userName"];
+				pass.value = obj[" pass"];
+				
+				console.log(obj)
+			}
+		</script>
+	</body>
+</html>

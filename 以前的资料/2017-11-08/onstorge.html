@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="btn" value="++" />
+		<script type="text/javascript">
+			
+			var btn = document.getElementById('btn');
+			var num = 0;
+			
+			btn.onclick = function(){
+				num++;
+				
+				window.localStorage.setItem('num',num);
+			}
+			
+			window.onstorage = function(){
+				console.log(1);
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>
