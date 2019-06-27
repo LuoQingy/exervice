@@ -12,6 +12,7 @@
         <el-tab-pane label="积分规则" name="integralRule"></el-tab-pane>
       </el-tabs>
     </div>
+    
     <router-view></router-view>
   </div>
 </template>
