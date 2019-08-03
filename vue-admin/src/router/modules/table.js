@@ -23,7 +23,25 @@ const tableRouter = {
             component: () => import('@/views/table/statistical-ip'),
             name: 'StatisticalIp',
             meta: { title: '渠道IP' }
-        }
+        },
+        {
+            path: 'merchant-table1',
+            component: () => import('@/views/table/merchant-table1'),
+            name: 'MerchantTable1',
+            meta: { title: '商城商户1' }
+        },
+        {
+            path: 'merchant-table2',
+            component: () => import('@/views/table/merchant-table2'),
+            name: 'MerchantTable2',
+            meta: { title: '商城商户2' }
+        },
+        {
+            path: 'merchant-table3',
+            component: () => import('@/views/table/merchant-table3'),
+            name: 'MerchantTable3',
+            meta: { title: '商城商户3' }
+        },
     ]
 }
 export default tableRouter

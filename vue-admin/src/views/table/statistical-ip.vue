@@ -26,7 +26,8 @@
             </el-table-column> -->
         </el-table>
         <div class="block" style="padding:10px 0px;">
-            <el-pagination
+            <el-pagination  
+            style="float:right;"
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
             :current-page="currentPage"
