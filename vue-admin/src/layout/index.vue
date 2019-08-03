@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { Navbar,Sidebar, AppMain } from './components'
+import { Navbar, Sidebar, AppMain } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
@@ -25,7 +25,7 @@ export default {
   mixins: [ResizeMixin],
   computed: {
     sidebar() {
-       return this.$store.state.app.sidebar
+      return this.$store.state.app.sidebar
     },
     device() {
       return this.$store.state.app.device

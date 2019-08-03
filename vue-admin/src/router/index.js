@@ -4,6 +4,9 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import Layout from '@/layout'
+
+import chartsRouter from './modules/charts'
+import tableRouter from './modules/table'
 /**
  * hidden: true                   if set true, item will not show in the sidebar(default is false)
  * 
@@ -22,9 +25,12 @@ export const constantRoutes = [
           path: 'dashboard',
           name: 'Dashboard',
           component: () => import('@/views/dashboard/index'),
-          meta: { title: 'Dashboard', icon: 'dashboard' }
+          meta: { title: '首页', icon: 'dashboard' ,affix: true}
         }]
     },
+
+    chartsRouter,
+    tableRouter,
 ]
 
 const createRouter = () => new Router({
